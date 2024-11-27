@@ -1,0 +1,921 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../bab1/">
+      
+      
+        <link rel="next" href="../bab3/">
+      
+      
+      <link rel="icon" href="../images/book.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
+    
+    
+      
+        <title>Bab 2 - Tutorial MySQL</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#manipulasi-data-dengan-dml" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Tutorial MySQL" class="md-header__button md-logo" aria-label="Tutorial MySQL" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tutorial MySQL
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Bab 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Tutorial MySQL" class="md-nav__button md-logo" aria-label="Tutorial MySQL" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 22a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-6v7L9.5 7.5 7 9V2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2z"/></svg>
+
+    </a>
+    Tutorial MySQL
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beranda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Bab 2
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Bab 2
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#manipulasi-data-dengan-dml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manipulasi Data Dengan DML
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulasi Data Dengan DML">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#memasukkan-data-tabel-kategori" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memasukkan data tabel 'kategori'
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memasukkan-data-tabel-pengarang" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memasukkan data tabel 'pengarang'
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memasukkan-data-tabel-penerbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memasukkan data tabel 'penerbit'
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memasukkan-data-tabel-buku" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memasukkan data tabel 'buku'
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memasukkan-data-tabel-link_buku_pengarang" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memasukkan data tabel 'link_buku_pengarang'
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memasukkan-data-tabel-link_buku_kategori" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memasukkan data tabel 'link_buku_kategori'
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-tambahan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query Tambahan
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Query Tambahan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mengubah-data-di-dalam-tabel-penerbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mengubah data di dalam tabel penerbit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengubah-data-di-dalam-tabel-buku" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mengubah data di dalam tabel buku
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menghapus-satu-row-data-dalam-tabel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Menghapus satu row data dalam tabel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menghapus-seluruh-row-data-dalam-tabel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Menghapus seluruh row data dalam tabel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menghapus-tabel-beserta-isinya-lalu-mere-build-ulang-tabel-tanpa-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Menghapus tabel beserta isinya, lalu mere-build ulang tabel tanpa data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#manipulasi-data-dengan-dml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manipulasi Data Dengan DML
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulasi Data Dengan DML">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#memasukkan-data-tabel-kategori" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memasukkan data tabel 'kategori'
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memasukkan-data-tabel-pengarang" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memasukkan data tabel 'pengarang'
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memasukkan-data-tabel-penerbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memasukkan data tabel 'penerbit'
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memasukkan-data-tabel-buku" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memasukkan data tabel 'buku'
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memasukkan-data-tabel-link_buku_pengarang" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memasukkan data tabel 'link_buku_pengarang'
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memasukkan-data-tabel-link_buku_kategori" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memasukkan data tabel 'link_buku_kategori'
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#query-tambahan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query Tambahan
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Query Tambahan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mengubah-data-di-dalam-tabel-penerbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mengubah data di dalam tabel penerbit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mengubah-data-di-dalam-tabel-buku" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mengubah data di dalam tabel buku
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menghapus-satu-row-data-dalam-tabel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Menghapus satu row data dalam tabel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menghapus-seluruh-row-data-dalam-tabel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Menghapus seluruh row data dalam tabel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#menghapus-tabel-beserta-isinya-lalu-mere-build-ulang-tabel-tanpa-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Menghapus tabel beserta isinya, lalu mere-build ulang tabel tanpa data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Bab 2</h1>
+
+<h3 id="manipulasi-data-dengan-dml">Manipulasi Data Dengan DML</h3>
+<div class="highlight"><pre><span></span><code>INSERT, UPDATE, DELETE
+</code></pre></div>
+<hr />
+<h4 id="memasukkan-data-tabel-kategori">Memasukkan data tabel 'kategori'</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">kategori</span><span class="w"> </span><span class="p">(</span><span class="n">kategori_nama</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">(</span><span class="s1">&#39;Database&#39;</span><span class="p">),</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">(</span><span class="s1">&#39;Desain Grafis&#39;</span><span class="p">),</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">(</span><span class="s1">&#39;Jaringan Komputer&#39;</span><span class="p">),</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">(</span><span class="s1">&#39;Pemrograman&#39;</span><span class="p">),</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">(</span><span class="s1">&#39;Web dan Internet&#39;</span><span class="p">),</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">(</span><span class="s1">&#39;Office Application&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="memasukkan-data-tabel-pengarang">Memasukkan data tabel 'pengarang'</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">pengarang</span><span class="w"> </span><span class="k">VALUES</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">(</span><span class="s1">&#39;P01&#39;</span><span class="p">,</span><span class="s1">&#39;Andi Setiawan&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">(</span><span class="s1">&#39;P02&#39;</span><span class="p">,</span><span class="s1">&#39;Rudi Wicaksono&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">(</span><span class="s1">&#39;P03&#39;</span><span class="p">,</span><span class="s1">&#39;Beni Tito&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="p">(</span><span class="s1">&#39;P04&#39;</span><span class="p">,</span><span class="s1">&#39;Prasetya&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">(</span><span class="s1">&#39;P05&#39;</span><span class="p">,</span><span class="s1">&#39;Erik Rusdianto&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">(</span><span class="s1">&#39;P06&#39;</span><span class="p">,</span><span class="s1">&#39;Rosdiana&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">(</span><span class="s1">&#39;P07&#39;</span><span class="p">,</span><span class="s1">&#39;Fredi Hidayat&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">(</span><span class="s1">&#39;P08&#39;</span><span class="p">,</span><span class="s1">&#39;Hasanudin&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">(</span><span class="s1">&#39;P09&#39;</span><span class="p">,</span><span class="s1">&#39;Ahmad hanafi&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">(</span><span class="s1">&#39;P10&#39;</span><span class="p">,</span><span class="s1">&#39;Iwan Gunardi&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="p">(</span><span class="s1">&#39;P11&#39;</span><span class="p">,</span><span class="s1">&#39;Iman Teguh&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="p">(</span><span class="s1">&#39;P12&#39;</span><span class="p">,</span><span class="s1">&#39;Abdul Ghozali&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">(</span><span class="s1">&#39;P13&#39;</span><span class="p">,</span><span class="s1">&#39;Tegar Sanjaya&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="memasukkan-data-tabel-penerbit">Memasukkan data tabel 'penerbit'</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">penerbit</span><span class="w"> </span><span class="k">VALUES</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">(</span><span class="s1">&#39;PB01&#39;</span><span class="p">,</span><span class="s1">&#39;Angkasa Raya&#39;</span><span class="p">),</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">(</span><span class="s1">&#39;PB02&#39;</span><span class="p">,</span><span class="s1">&#39;Cahaya Ilmu Persada&#39;</span><span class="p">),</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">(</span><span class="s1">&#39;PB03&#39;</span><span class="p">,</span><span class="s1">&#39;Sinar Ilmu Perkasa&#39;</span><span class="p">),</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">(</span><span class="s1">&#39;PB04&#39;</span><span class="p">,</span><span class="s1">&#39;Intan&#39;</span><span class="p">),</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">(</span><span class="s1">&#39;PB05&#39;</span><span class="p">,</span><span class="s1">&#39;Sinar Raya&#39;</span><span class="p">),</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">(</span><span class="s1">&#39;PB06&#39;</span><span class="p">,</span><span class="s1">&#39;Informatika&#39;</span><span class="p">),</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">(</span><span class="s1">&#39;PB07&#39;</span><span class="p">,</span><span class="s1">&#39;Tiga Sekawan&#39;</span><span class="p">),</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">(</span><span class="s1">&#39;PB08&#39;</span><span class="p">,</span><span class="s1">&#39;Cipta Ilmu&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="memasukkan-data-tabel-buku">Memasukkan data tabel 'buku'</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">buku</span><span class="w"> </span><span class="k">VALUES</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">(</span><span class="s1">&#39;222-34222-1-0&#39;</span><span class="p">,</span><span class="s1">&#39;Belajar Photoshop&#39;</span><span class="p">,</span><span class="s1">&#39;PB01&#39;</span><span class="p">,</span><span class="s1">&#39;2019/07/02&#39;</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">42000</span><span class="p">),</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">(</span><span class="s1">&#39;222-34222-1-1&#39;</span><span class="p">,</span><span class="s1">&#39;Panduan CorelDRAW&#39;</span><span class="p">,</span><span class="s1">&#39;PB02&#39;</span><span class="p">,</span><span class="s1">&#39;2020/03/15&#39;</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">55000</span><span class="p">),</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="p">(</span><span class="s1">&#39;979-96446-9-0&#39;</span><span class="p">,</span><span class="s1">&#39;Belajar SQL&#39;</span><span class="p">,</span><span class="s1">&#39;PB06&#39;</span><span class="p">,</span><span class="s1">&#39;2019/10/12&#39;</span><span class="p">,</span><span class="mi">346</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">45000</span><span class="p">),</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">(</span><span class="s1">&#39;979-96446-9-1&#39;</span><span class="p">,</span><span class="s1">&#39;Panduan Basis Data&#39;</span><span class="p">,</span><span class="s1">&#39;PB01&#39;</span><span class="p">,</span><span class="s1">&#39;2017/03/02&#39;</span><span class="p">,</span><span class="mi">257</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">37000</span><span class="p">),</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">(</span><span class="s1">&#39;979-96446-9-2&#39;</span><span class="p">,</span><span class="s1">&#39;Perancangan Sistem&#39;</span><span class="p">,</span><span class="s1">&#39;PB03&#39;</span><span class="p">,</span><span class="s1">&#39;2013/09/20&#39;</span><span class="p">,</span><span class="mi">403</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">37000</span><span class="p">),</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">(</span><span class="s1">&#39;979-96446-9-3&#39;</span><span class="p">,</span><span class="s1">&#39;Microsoft Access&#39;</span><span class="p">,</span><span class="s1">&#39;PB06&#39;</span><span class="p">,</span><span class="s1">&#39;2015/07/13&#39;</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">48500</span><span class="p">),</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-0&#39;</span><span class="p">,</span><span class="s1">&#39;Pemrograman Pascal&#39;</span><span class="p">,</span><span class="s1">&#39;PB08&#39;</span><span class="p">,</span><span class="s1">&#39;2014/11/01&#39;</span><span class="p">,</span><span class="mi">350</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">50000</span><span class="p">),</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-1&#39;</span><span class="p">,</span><span class="s1">&#39;Pemrograman Java&#39;</span><span class="p">,</span><span class="s1">&#39;PB06&#39;</span><span class="p">,</span><span class="s1">&#39;2017/01/23&#39;</span><span class="p">,</span><span class="mi">450</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">72000</span><span class="p">),</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-2&#39;</span><span class="p">,</span><span class="s1">&#39;Pemrograman C untuk Hardware&#39;</span><span class="p">,</span><span class="s1">&#39;PB05&#39;</span><span class="p">,</span><span class="s1">&#39;2016/12/25&#39;</span><span class="p">,</span><span class="mi">398</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">47000</span><span class="p">),</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-3&#39;</span><span class="p">,</span><span class="s1">&#39;Panduan C++&#39;</span><span class="p">,</span><span class="s1">&#39;PB06&#39;</span><span class="p">,</span><span class="s1">&#39;2015/07/15&#39;</span><span class="p">,</span><span class="mi">490</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">65000</span><span class="p">),</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-4&#39;</span><span class="p">,</span><span class="s1">&#39;Belajar Delphi&#39;</span><span class="p">,</span><span class="s1">&#39;PB05&#39;</span><span class="p">,</span><span class="s1">&#39;2018/08/11&#39;</span><span class="p">,</span><span class="mi">328</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">50000</span><span class="p">),</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-5&#39;</span><span class="p">,</span><span class="s1">&#39;Visual Basic&#39;</span><span class="p">,</span><span class="s1">&#39;PB02&#39;</span><span class="p">,</span><span class="s1">&#39;2017/10/14&#39;</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">50000</span><span class="p">),</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">(</span><span class="s1">&#39;666-96771-2-0&#39;</span><span class="p">,</span><span class="s1">&#39;Panduan Membangun Jaringan TCP/IP&#39;</span><span class="p">,</span><span class="s1">&#39;PB08&#39;</span><span class="p">,</span><span class="s1">&#39;2016/08/02&#39;</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">60000</span><span class="p">),</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">(</span><span class="s1">&#39;666-96771-2-1&#39;</span><span class="p">,</span><span class="s1">&#39;Implementasi TCP/IP di Linux&#39;</span><span class="p">,</span><span class="s1">&#39;PB08&#39;</span><span class="p">,</span><span class="s1">&#39;2018/11/21&#39;</span><span class="p">,</span><span class="mi">230</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">350000</span><span class="p">),</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-0&#39;</span><span class="p">,</span><span class="s1">&#39;Belajar PHP 8&#39;</span><span class="p">,</span><span class="s1">&#39;PB07&#39;</span><span class="p">,</span><span class="s1">&#39;2020/05/02&#39;</span><span class="p">,</span><span class="mi">600</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">95000</span><span class="p">),</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-1&#39;</span><span class="p">,</span><span class="s1">&#39;Aplikasi Web dengan Python&#39;</span><span class="p">,</span><span class="s1">&#39;PB07&#39;</span><span class="p">,</span><span class="s1">&#39;2014/08/01&#39;</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">30000</span><span class="p">),</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-2&#39;</span><span class="p">,</span><span class="s1">&#39;Internet Marketing&#39;</span><span class="p">,</span><span class="s1">&#39;PB07&#39;</span><span class="p">,</span><span class="s1">&#39;2017/01/24&#39;</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">38500</span><span class="p">),</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-3&#39;</span><span class="p">,</span><span class="s1">&#39;Panduan Menjadi Youtuber&#39;</span><span class="p">,</span><span class="s1">&#39;PB07&#39;</span><span class="p">,</span><span class="s1">&#39;2017/01/24&#39;</span><span class="p">,</span><span class="s1">&#39;243&#39;</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">38500</span><span class="p">),</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="p">(</span><span class="s1">&#39;999-11555-2-0&#39;</span><span class="p">,</span><span class="s1">&#39;Microsoft Power Point&#39;</span><span class="p">,</span><span class="s1">&#39;PB06&#39;</span><span class="p">,</span><span class="s1">&#39;2018/11/23&#39;</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">57500</span><span class="p">),</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="p">(</span><span class="s1">&#39;999-11555-2-1&#39;</span><span class="p">,</span><span class="s1">&#39;Microsoft Word&#39;</span><span class="p">,</span><span class="s1">&#39;PB04&#39;</span><span class="p">,</span><span class="s1">&#39;2017/12/01&#39;</span><span class="p">,</span><span class="mi">270</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">60000</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="memasukkan-data-tabel-link_buku_pengarang">Memasukkan data tabel 'link_buku_pengarang'</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">link_buku_pengarang</span><span class="w"> </span><span class="k">VALUES</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">(</span><span class="s1">&#39;222-34222-1-0&#39;</span><span class="p">,</span><span class="s1">&#39;P01&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">(</span><span class="s1">&#39;222-34222-1-1&#39;</span><span class="p">,</span><span class="s1">&#39;P04&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">(</span><span class="s1">&#39;666-96771-2-0&#39;</span><span class="p">,</span><span class="s1">&#39;P04&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">(</span><span class="s1">&#39;666-96771-2-0&#39;</span><span class="p">,</span><span class="s1">&#39;P07&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">(</span><span class="s1">&#39;666-96771-2-0&#39;</span><span class="p">,</span><span class="s1">&#39;P06&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">(</span><span class="s1">&#39;666-96771-2-1&#39;</span><span class="p">,</span><span class="s1">&#39;P04&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">(</span><span class="s1">&#39;666-96771-2-1&#39;</span><span class="p">,</span><span class="s1">&#39;P01&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-0&#39;</span><span class="p">,</span><span class="s1">&#39;P02&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-0&#39;</span><span class="p">,</span><span class="s1">&#39;P04&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-1&#39;</span><span class="p">,</span><span class="s1">&#39;P03&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-1&#39;</span><span class="p">,</span><span class="s1">&#39;P12&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-1&#39;</span><span class="p">,</span><span class="s1">&#39;P10&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-2&#39;</span><span class="p">,</span><span class="s1">&#39;P13&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-3&#39;</span><span class="p">,</span><span class="s1">&#39;P08&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-3&#39;</span><span class="p">,</span><span class="s1">&#39;P09&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-0&#39;</span><span class="p">,</span><span class="s1">&#39;P04&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-1&#39;</span><span class="p">,</span><span class="s1">&#39;P02&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-1&#39;</span><span class="p">,</span><span class="s1">&#39;P11&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-2&#39;</span><span class="p">,</span><span class="s1">&#39;P01&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-2&#39;</span><span class="p">,</span><span class="s1">&#39;P06&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-3&#39;</span><span class="p">,</span><span class="s1">&#39;P02&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-4&#39;</span><span class="p">,</span><span class="s1">&#39;P10&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-4&#39;</span><span class="p">,</span><span class="s1">&#39;P09&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-5&#39;</span><span class="p">,</span><span class="s1">&#39;P02&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a><span class="p">(</span><span class="s1">&#39;979-96446-9-0&#39;</span><span class="p">,</span><span class="s1">&#39;P11&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a><span class="p">(</span><span class="s1">&#39;979-96446-9-0&#39;</span><span class="p">,</span><span class="s1">&#39;P02&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a><span class="p">(</span><span class="s1">&#39;979-96446-9-1&#39;</span><span class="p">,</span><span class="s1">&#39;P07&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29" href="#__codelineno-4-29"></a><span class="p">(</span><span class="s1">&#39;979-96446-9-2&#39;</span><span class="p">,</span><span class="s1">&#39;P13&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30" href="#__codelineno-4-30"></a><span class="p">(</span><span class="s1">&#39;979-96446-9-2&#39;</span><span class="p">,</span><span class="s1">&#39;P10&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31" href="#__codelineno-4-31"></a><span class="p">(</span><span class="s1">&#39;979-96446-9-2&#39;</span><span class="p">,</span><span class="s1">&#39;P12&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32" href="#__codelineno-4-32"></a><span class="p">(</span><span class="s1">&#39;979-96446-9-2&#39;</span><span class="p">,</span><span class="s1">&#39;P03&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33" href="#__codelineno-4-33"></a><span class="p">(</span><span class="s1">&#39;979-96446-9-3&#39;</span><span class="p">,</span><span class="s1">&#39;P11&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34" href="#__codelineno-4-34"></a><span class="p">(</span><span class="s1">&#39;999-11555-2-0&#39;</span><span class="p">,</span><span class="s1">&#39;P11&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35" href="#__codelineno-4-35"></a><span class="p">(</span><span class="s1">&#39;999-11555-2-0&#39;</span><span class="p">,</span><span class="s1">&#39;P13&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36" href="#__codelineno-4-36"></a><span class="p">(</span><span class="s1">&#39;999-11555-2-1&#39;</span><span class="p">,</span><span class="s1">&#39;P08&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37" href="#__codelineno-4-37"></a><span class="p">(</span><span class="s1">&#39;999-11555-2-1&#39;</span><span class="p">,</span><span class="s1">&#39;P09&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="p">(</span><span class="s1">&#39;999-11555-2-1&#39;</span><span class="p">,</span><span class="s1">&#39;P10&#39;</span><span class="p">),</span>
+<a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="p">(</span><span class="s1">&#39;999-11555-2-1&#39;</span><span class="p">,</span><span class="s1">&#39;P06&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="memasukkan-data-tabel-link_buku_kategori">Memasukkan data tabel 'link_buku_kategori'</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">link_buku_kategori</span><span class="w"> </span><span class="k">VALUES</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">(</span><span class="s1">&#39;222-34222-1-0&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">(</span><span class="s1">&#39;222-34222-1-1&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">(</span><span class="s1">&#39;979-96446-9-0&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">(</span><span class="s1">&#39;979-96446-9-1&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">(</span><span class="s1">&#39;979-96446-9-2&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="p">(</span><span class="s1">&#39;979-96446-9-2&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">(</span><span class="s1">&#39;979-96446-9-3&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-0&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-1&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-2&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-3&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-4&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="p">(</span><span class="s1">&#39;888-96771-3-5&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="p">(</span><span class="s1">&#39;666-96771-2-0&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="p">(</span><span class="s1">&#39;666-96771-2-1&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-0&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-0&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-1&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-1&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-2&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="p">(</span><span class="s1">&#39;777-76723-5-3&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="p">(</span><span class="s1">&#39;999-11555-2-0&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="p">(</span><span class="s1">&#39;999-11555-2-1&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="query-tambahan">Query Tambahan</h3>
+<h4 id="mengubah-data-di-dalam-tabel-penerbit">Mengubah data di dalam tabel penerbit</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">penerbit</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="n">penerbit_nama</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Informatika Bandung&#39;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">WHERE</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="n">penerbit_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PB06&#39;</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="mengubah-data-di-dalam-tabel-buku">Mengubah data di dalam tabel buku</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">buku</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="n">buku_judul</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Tuntunan Praktis Menggunakan Microsoft Word 2010&#39;</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">        </span><span class="n">penerbit_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PB02&#39;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">WHERE</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">buku_isbn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;999-11555-2-1&#39;</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="menghapus-satu-row-data-dalam-tabel">Menghapus satu row data dalam tabel</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">buku</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">buku_isbn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;888-96771-3-5&#39;</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="menghapus-seluruh-row-data-dalam-tabel">Menghapus seluruh row data dalam tabel</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">buku</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="menghapus-tabel-beserta-isinya-lalu-mere-build-ulang-tabel-tanpa-data">Menghapus tabel beserta isinya, lalu mere-build ulang tabel tanpa data</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">buku</span><span class="p">;</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Made with <span style="color:red">❤</span> by Masipnu | &copy; 2024
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/masipnu" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://instagram.com/masipnu" target="_blank" rel="noopener" title="instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141m0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7m146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8m76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://id.linkedin.com/in/ipnu-masyaid-8a6629177" target="_blank" rel="noopener" title="id.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.prefetch"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
