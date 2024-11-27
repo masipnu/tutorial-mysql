@@ -1,0 +1,53 @@
+site_name: Tutorial MySQL
+nav:
+  - Beranda: index.md
+  - Bab 1: bab1.md
+  - Bab 2: bab2.md
+  - Bab 3: bab3.md
+  - Bab 4: bab4.md
+  - Bab 5: bab5.md
+  # - Bab 6: bab6.md
+theme:
+  icon:
+    logo: material/book
+  favicon: images/book.svg
+  name: material
+  font:
+    # text: Ubuntu
+    code: JetBrains Mono
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    # - navigation.tabs
+    # - navigation.footer
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/masipnu
+    - icon: fontawesome/brands/instagram
+      link: https://instagram.com/masipnu
+    - icon: fontawesome/brands/linkedin
+      link: https://id.linkedin.com/in/ipnu-masyaid-8a6629177
+  generator: false
+copyright: Made with <span style="color:red">❤</span> by Masipnu | &copy; 2024
