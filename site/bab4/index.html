@@ -20,7 +20,7 @@
     
     
       
-        <title>Bab 4 - Tutorial MySQL</title>
+        <title>Bab 4 - Seleksi Data 1 - Tutorial MySQL</title>
       
     
     
@@ -41,8 +41,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Open Sans";--md-code-font:"JetBrains Mono"}</style>
       
     
     
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bab 4
+              Bab 4 - Seleksi Data 1
             
           </span>
         </div>
@@ -121,20 +121,30 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
       </label>
     
   
@@ -251,7 +261,7 @@
         
   
   <span class="md-ellipsis">
-    Bab 1
+    Bab 1 - Mendefinisikan Data
   </span>
   
 
@@ -271,7 +281,7 @@
         
   
   <span class="md-ellipsis">
-    Bab 2
+    Bab 2 - Manipulasi Data
   </span>
   
 
@@ -291,7 +301,7 @@
         
   
   <span class="md-ellipsis">
-    Bab 3
+    Bab 3 - Kontrol Hak Akses
   </span>
   
 
@@ -320,7 +330,7 @@
           
   
   <span class="md-ellipsis">
-    Bab 4
+    Bab 4 - Seleksi Data 1
   </span>
   
 
@@ -331,7 +341,7 @@
         
   
   <span class="md-ellipsis">
-    Bab 4
+    Bab 4 - Seleksi Data 1
   </span>
   
 
@@ -416,7 +426,147 @@
         
   
   <span class="md-ellipsis">
-    Bab 5
+    Bab 5 - Seleksi Data 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 6 - Tabel Virtual
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 7 - Manajemen User
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 8 - Fungsi Agregasi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 9 - Operator dan Fungsi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 10 - Prosedur dan Fungsi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 11 - Trigger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 12 - Ekspor dan Impor
   </span>
   
 
@@ -512,15 +662,10 @@
 
 
 <h1 id="seleksi-data-bagian-1">Seleksi Data - Bagian 1</h1>
-<hr />
 <h2 id="perintah-select">Perintah SELECT</h2>
-<ul>
-<li>
 <p>Menampilkan seluruh kolom dan data dalam tabel
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">buku</span><span class="p">;</span>
 </code></pre></div></p>
-</li>
-<li>
 <p>Menampilkan beberapa kolom dari tabel buku
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">SELECT</span><span class="w">  </span><span class="n">buku_isbn</span><span class="p">,</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">        </span><span class="n">buku_judul</span><span class="p">,</span>
@@ -532,8 +677,6 @@
 <a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">FROM</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="n">buku</span><span class="p">;</span>
 </code></pre></div></p>
-</li>
-<li>
 <p>Menampilkan beberapa kolom dari tabel buku dan memberi alias
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">SELECT</span><span class="w">  </span><span class="n">buku_isbn</span><span class="w"> </span><span class="n">ISBN</span><span class="p">,</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">        </span><span class="n">buku_judul</span><span class="w"> </span><span class="n">JUDUL</span><span class="p">,</span>
@@ -545,8 +688,6 @@
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">FROM</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="n">buku</span><span class="p">;</span>
 </code></pre></div></p>
-</li>
-<li>
 <p>Menampilkan seluruh data dari beberapa kolom
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">SELECT</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">buku_harga</span><span class="p">,</span>
@@ -554,8 +695,6 @@
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">FROM</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">buku</span><span class="p">;</span>
 </code></pre></div></p>
-</li>
-<li>
 <p>Menampilkan seluruh data dari beberapa kolom dan memberi alias
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">SELECT</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">buku_harga</span><span class="w"> </span><span class="n">HARGA</span><span class="p">,</span>
@@ -563,8 +702,6 @@
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">FROM</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="n">buku</span><span class="p">;</span>
 </code></pre></div></p>
-</li>
-<li>
 <p>Menyertakan nama database dan tabel dalam perintah SELECT
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">SELECT</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">buku</span><span class="p">.</span><span class="n">buku_isbn</span><span class="p">,</span>
@@ -573,8 +710,6 @@
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">FROM</span>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="n">buku_db</span><span class="p">.</span><span class="n">buku</span><span class="p">;</span>
 </code></pre></div></p>
-</li>
-<li>
 <p>Menggunakan Alias tabel
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">SELECT</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">buku_isbn</span><span class="p">,</span>
@@ -583,8 +718,6 @@
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">FROM</span>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="n">buku</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
 </code></pre></div></p>
-</li>
-<li>
 <p>Menggunakan Alias pada nama kolom
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">SELECT</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="n">buku_isbn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s1">&#39;ISBN&#39;</span><span class="p">,</span>
@@ -593,12 +726,8 @@
 <a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">FROM</span>
 <a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="n">buku</span><span class="p">;</span>
 </code></pre></div></p>
-</li>
-</ul>
 <h2 id="menyaring-data">Menyaring Data</h2>
 <p>Data yang ditampilkan dapat disaring (filter) berdasarkan kebutuhan informasi yang akan disajikan. Untuk menyaring data, perlu didefinisikan kondisi yang akan dijadikans ebagai kriteria penyaringan. Dalam perintah <strong>SELECT</strong> ditambah klausa <strong>WHERE</strong> setelahnya.</p>
-<ul>
-<li>
 <p>Contoh 1
 Menampilkan data buku yang harganya kurang dari Rp. 45.000
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">SELECT</span>
@@ -610,8 +739,6 @@ Menampilkan data buku yang harganya kurang dari Rp. 45.000
 <a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="k">WHERE</span>
 <a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="n">buku_harga</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">45000</span><span class="p">;</span>
 </code></pre></div></p>
-</li>
-<li>
 <p>Menampilkan data buku yang harganya kurang dari Rp. 45.000 dan ISBN diawali oleh angka 777
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">SELECT</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="n">buku_isbn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="s1">&#39;ISBN&#39;</span><span class="p">,</span>
@@ -623,11 +750,7 @@ Menampilkan data buku yang harganya kurang dari Rp. 45.000
 <a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="p">(</span><span class="n">buku_harga</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">45000</span><span class="p">)</span><span class="w"> </span><span class="k">AND</span>
 <a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="p">(</span><span class="n">buku_isbn</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;777%&#39;</span><span class="p">);</span>
 </code></pre></div></p>
-</li>
-</ul>
 <p>Menampilkan data dengan rentang tertentu Menggunakan klausa BETWEEN</p>
-<ul>
-<li>
 <p>Contoh BETWEEN 1
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">SELECT</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="n">buku_isbn</span><span class="p">,</span>
@@ -639,8 +762,6 @@ Menampilkan data buku yang harganya kurang dari Rp. 45.000
 <a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="n">buku_harga</span>
 <a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">60000</span><span class="p">;</span>
 </code></pre></div></p>
-</li>
-<li>
 <p>Contoh BETWEEN 2
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">SELECT</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="n">buku_isbn</span><span class="p">,</span>
@@ -652,12 +773,9 @@ Menampilkan data buku yang harganya kurang dari Rp. 45.000
 <a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="p">(</span><span class="n">buku_harga</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">50000</span><span class="p">)</span><span class="w"> </span><span class="k">AND</span>
 <a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="p">(</span><span class="n">buku_harga</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">60000</span><span class="p">);</span>
 </code></pre></div></p>
-</li>
-</ul>
 <h2 id="klausa-limit">Klausa LIMIT</h2>
 <p>LIMIT digunakan untuk membatasi data yang disajikan sesuai batas limit yang ditentukan terurut dari atas.</p>
-<ul>
-<li>Contoh LIMIT 1
+<p>Contoh LIMIT 1
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">SELECT</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="n">buku_isbn</span><span class="p">,</span>
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="n">buku_judul</span><span class="p">,</span>
@@ -665,10 +783,9 @@ Menampilkan data buku yang harganya kurang dari Rp. 45.000
 <a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="k">FROM</span>
 <a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="n">buku</span>
 <a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="k">LIMIT</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
-</code></pre></div></li>
-</ul>
+</code></pre></div></p>
 <p>LIMIT juga bisa membatasi data yang dimulai dari baris tertentu.
-- Contoh LIMIT 2
+Contoh LIMIT 2
 Membatasi 10 data dimulai dari urutan ke-6
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">SELECT</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="n">buku_isbn</span><span class="p">,</span>
@@ -680,22 +797,16 @@ Membatasi 10 data dimulai dari urutan ke-6
 </code></pre></div></p>
 <h2 id="klausa-distinct">Klausa DISTINCT</h2>
 <p>Klausa ini berfungsi untuk menghilangkan data yang dobel saat disajikan.</p>
-<ul>
-<li>
 <p>Contoh sebelum diberi DISTINCT
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">penerbit_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">buku</span><span class="p">;</span>
 </code></pre></div></p>
-</li>
-<li>
 <p>Setelah diberi klausa DISTINCT
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">penerbit_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">buku</span><span class="p">;</span>
 </code></pre></div></p>
-</li>
-</ul>
 <h2 id="mengurutkan-data">Mengurutkan Data</h2>
 <p>Secara default data yang disajikan menggunakan printah SELECT akan ditmpilkan sesuai urutan data dimasukkan, kecuali pada kolom yang diatur sebagai primary key, maka dia akan urut sesui bilangan. Untuk mengurutkan data sesuai kolom tertentu kita bisa menggunakan klausa ORDER BY.</p>
 <p><strong>Contoh Penggunaan ORDER BY</strong>
-- Mengurutkan datan sesuai kolom 'buku_judul'
+Mengurutkan datan sesuai kolom 'buku_judul'
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">SELECT</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="n">buku_isbn</span><span class="p">,</span>
 <a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="n">buku_judul</span><span class="p">,</span>
@@ -705,8 +816,6 @@ Membatasi 10 data dimulai dari urutan ke-6
 <a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span>
 <a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="n">buku_judul</span><span class="p">;</span>
 </code></pre></div></p>
-<ul>
-<li>
 <p>Pengurutan data dari terkecil ke terbesar (Ascending)
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">SELECT</span>
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="n">buku_isbn</span><span class="p">,</span>
@@ -717,8 +826,6 @@ Membatasi 10 data dimulai dari urutan ke-6
 <a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span>
 <a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">    </span><span class="n">buku_judul</span><span class="w"> </span><span class="k">ASC</span><span class="p">;</span>
 </code></pre></div></p>
-</li>
-<li>
 <p>Pengurutan data dari terbesar ke terkecil (Descending)
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">SELECT</span>
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="n">buku_isbn</span><span class="p">,</span>
@@ -729,8 +836,6 @@ Membatasi 10 data dimulai dari urutan ke-6
 <a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span>
 <a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">    </span><span class="n">buku_judul</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span>
 </code></pre></div></p>
-</li>
-</ul>
 
 
 

@@ -1,8 +1,10 @@
-### Manipulasi Data Dengan DML
+# Manipulasi Data Dengan DML
     INSERT, UPDATE, DELETE
----
 
-#### Memasukkan data tabel 'kategori'
+
+## Memasukkan Data Tabel
+
+### Tabel Kategori
 ```sql
 INSERT INTO kategori (kategori_nama) VALUES
 ('Database'),
@@ -13,7 +15,7 @@ INSERT INTO kategori (kategori_nama) VALUES
 ('Office Application');
 ```
 
-#### Memasukkan data tabel 'pengarang'
+### Tabel Pengarang
 ```sql
 INSERT INTO pengarang VALUES
 ('P01','Andi Setiawan'),
@@ -31,7 +33,7 @@ INSERT INTO pengarang VALUES
 ('P13','Tegar Sanjaya');
 ```
 
-#### Memasukkan data tabel 'penerbit'
+### Tabel Penerbit
 ```sql
 INSERT INTO penerbit VALUES
 ('PB01','Angkasa Raya'),
@@ -44,7 +46,7 @@ INSERT INTO penerbit VALUES
 ('PB08','Cipta Ilmu');
 ```
 
-#### Memasukkan data tabel 'buku'
+### Tabel Buku
 ```sql
 INSERT INTO buku VALUES
 ('222-34222-1-0','Belajar Photoshop','PB01','2019/07/02',300,NULL,42000),
@@ -69,7 +71,7 @@ INSERT INTO buku VALUES
 ('999-11555-2-1','Microsoft Word','PB04','2017/12/01',270,NULL,60000);
 ```
 
-#### Memasukkan data tabel 'link_buku_pengarang'
+### Tabel Link Buku Pengarang
 ```sql
 INSERT INTO link_buku_pengarang VALUES
 ('222-34222-1-0','P01'),
@@ -112,7 +114,7 @@ INSERT INTO link_buku_pengarang VALUES
 ('999-11555-2-1','P06');
 ```
 
-#### Memasukkan data tabel 'link_buku_kategori'
+### Tabel Link Buku Kategori
 ```sql
 INSERT INTO link_buku_kategori VALUES
 ('222-34222-1-0',2),
@@ -140,10 +142,12 @@ INSERT INTO link_buku_kategori VALUES
 ('999-11555-2-1',6);
 ```
 
-### Query Tambahan
+## Query Tambahan
 
 
-#### Mengubah data di dalam tabel penerbit
+### Mengubah Data
+
+Mengubah Data Tabel Penerbit
 ```sql
 UPDATE penerbit
 	SET penerbit_nama = 'Informatika Bandung'
@@ -151,7 +155,7 @@ WHERE
 	penerbit_id = 'PB06';
 ```
 
-#### Mengubah data di dalam tabel buku
+Mengubah Data Tabel Buku
 ```sql
 UPDATE buku
 	SET buku_judul = 'Tuntunan Praktis Menggunakan Microsoft Word 2010',
@@ -160,18 +164,20 @@ WHERE
 	buku_isbn = '999-11555-2-1';
 ```
 
-#### Menghapus satu row data dalam tabel
+### Menghapus Data
+
+Menghapus 1 Baris Data
 ```sql
 DELETE FROM buku
 WHERE buku_isbn = '888-96771-3-5';
 ```
 
-#### Menghapus seluruh row data dalam tabel
+Menghapus Seluruh Baris Data
 ```sql
 DELETE FROM buku;
 ```
 
-#### Menghapus tabel beserta isinya, lalu mere-build ulang tabel tanpa data
+Menghapus tabel beserta isinya, lalu mere-build ulang tabel tanpa data
 ```sql
 TRUNCATE table buku;
 ```

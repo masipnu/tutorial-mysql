@@ -1,6 +1,5 @@
-### Kontrol Hak Akses & Transaksi Data
+# Kontrol Hak Akses & Transaksi Data
     TCL : Grant, Revoke, Commit, Rollback
----
 
 - Memberikan seluruh jenis akses pada 1 database
 ```sql

@@ -1,34 +1,45 @@
 site_name: Tutorial MySQL
 nav:
   - Beranda: index.md
-  - Bab 1: bab1.md
-  - Bab 2: bab2.md
-  - Bab 3: bab3.md
-  - Bab 4: bab4.md
-  - Bab 5: bab5.md
-  # - Bab 6: bab6.md
+  - Bab 1 - Mendefinisikan Data: bab1.md
+  - Bab 2 - Manipulasi Data: bab2.md
+  - Bab 3 - Kontrol Hak Akses: bab3.md
+  - Bab 4 - Seleksi Data 1: bab4.md
+  - Bab 5 - Seleksi Data 2: bab5.md
+  - Bab 6 - Tabel Virtual: bab6.md
+  - Bab 7 - Manajemen User: bab7.md
+  - Bab 8 - Fungsi Agregasi: bab8.md
+  - Bab 9 - Operator dan Fungsi: bab9.md
+  - Bab 10 - Prosedur dan Fungsi: bab10.md
+  - Bab 11 - Trigger: bab11.md
+  - Bab 12 - Ekspor dan Impor: bab12.md
 theme:
   icon:
     logo: material/book
   favicon: images/book.svg
   name: material
   font:
-    # text: Ubuntu
+    text: Open Sans
     code: JetBrains Mono
   palette:
-    # Palette toggle for light mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
+      primary: indigo
+      accent: indigo
       toggle:
-        icon: material/brightness-7
+        icon: material/toggle-switch
         name: Switch to dark mode
-
-    # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: black
+      accent: indigo
       toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+        icon: material/toggle-switch-off
+        name: Switch to system preference
 
   features:
     - navigation.instant
