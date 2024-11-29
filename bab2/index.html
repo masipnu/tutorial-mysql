@@ -20,7 +20,7 @@
     
     
       
-        <title>Bab 2 - Tutorial MySQL</title>
+        <title>Bab 2 - Manipulasi Data - Tutorial MySQL</title>
       
     
     
@@ -41,8 +41,8 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"JetBrains Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Open Sans";--md-code-font:"JetBrains Mono"}</style>
       
     
     
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bab 2
+              Bab 2 - Manipulasi Data
             
           </span>
         </div>
@@ -121,20 +121,30 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1M8 13h8v-2H8zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4a5 5 0 0 0 5-5 5 5 0 0 0-5-5"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5M7 15a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
       </label>
     
   
@@ -251,7 +261,7 @@
         
   
   <span class="md-ellipsis">
-    Bab 1
+    Bab 1 - Mendefinisikan Data
   </span>
   
 
@@ -273,12 +283,14 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
   <span class="md-ellipsis">
-    Bab 2
+    Bab 2 - Manipulasi Data
   </span>
   
 
@@ -289,7 +301,7 @@
         
   
   <span class="md-ellipsis">
-    Bab 2
+    Bab 2 - Manipulasi Data
   </span>
   
 
@@ -301,6 +313,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -309,64 +323,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#manipulasi-data-dengan-dml" class="md-nav__link">
+  <a href="#memasukkan-data-tabel" class="md-nav__link">
     <span class="md-ellipsis">
-      Manipulasi Data Dengan DML
+      Memasukkan Data Tabel
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Manipulasi Data Dengan DML">
+    <nav class="md-nav" aria-label="Memasukkan Data Tabel">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#memasukkan-data-tabel-kategori" class="md-nav__link">
+  <a href="#tabel-kategori" class="md-nav__link">
     <span class="md-ellipsis">
-      Memasukkan data tabel 'kategori'
+      Tabel Kategori
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#memasukkan-data-tabel-pengarang" class="md-nav__link">
+  <a href="#tabel-pengarang" class="md-nav__link">
     <span class="md-ellipsis">
-      Memasukkan data tabel 'pengarang'
+      Tabel Pengarang
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#memasukkan-data-tabel-penerbit" class="md-nav__link">
+  <a href="#tabel-penerbit" class="md-nav__link">
     <span class="md-ellipsis">
-      Memasukkan data tabel 'penerbit'
+      Tabel Penerbit
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#memasukkan-data-tabel-buku" class="md-nav__link">
+  <a href="#tabel-buku" class="md-nav__link">
     <span class="md-ellipsis">
-      Memasukkan data tabel 'buku'
+      Tabel Buku
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#memasukkan-data-tabel-link_buku_pengarang" class="md-nav__link">
+  <a href="#tabel-link-buku-pengarang" class="md-nav__link">
     <span class="md-ellipsis">
-      Memasukkan data tabel 'link_buku_pengarang'
+      Tabel Link Buku Pengarang
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#memasukkan-data-tabel-link_buku_kategori" class="md-nav__link">
+  <a href="#tabel-link-buku-kategori" class="md-nav__link">
     <span class="md-ellipsis">
-      Memasukkan data tabel 'link_buku_kategori'
+      Tabel Link Buku Kategori
     </span>
   </a>
   
@@ -388,45 +402,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#mengubah-data-di-dalam-tabel-penerbit" class="md-nav__link">
+  <a href="#mengubah-data" class="md-nav__link">
     <span class="md-ellipsis">
-      Mengubah data di dalam tabel penerbit
+      Mengubah Data
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#mengubah-data-di-dalam-tabel-buku" class="md-nav__link">
+  <a href="#menghapus-data" class="md-nav__link">
     <span class="md-ellipsis">
-      Mengubah data di dalam tabel buku
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#menghapus-satu-row-data-dalam-tabel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Menghapus satu row data dalam tabel
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#menghapus-seluruh-row-data-dalam-tabel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Menghapus seluruh row data dalam tabel
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#menghapus-tabel-beserta-isinya-lalu-mere-build-ulang-tabel-tanpa-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      Menghapus tabel beserta isinya, lalu mere-build ulang tabel tanpa data
+      Menghapus Data
     </span>
   </a>
   
@@ -456,7 +443,7 @@
         
   
   <span class="md-ellipsis">
-    Bab 3
+    Bab 3 - Kontrol Hak Akses
   </span>
   
 
@@ -476,7 +463,7 @@
         
   
   <span class="md-ellipsis">
-    Bab 4
+    Bab 4 - Seleksi Data 1
   </span>
   
 
@@ -496,7 +483,147 @@
         
   
   <span class="md-ellipsis">
-    Bab 5
+    Bab 5 - Seleksi Data 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 6 - Tabel Virtual
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 7 - Manajemen User
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 8 - Fungsi Agregasi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 9 - Operator dan Fungsi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 10 - Prosedur dan Fungsi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab11/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 11 - Trigger
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bab12/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Bab 12 - Ekspor dan Impor
   </span>
   
 
@@ -522,6 +649,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -530,64 +659,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#manipulasi-data-dengan-dml" class="md-nav__link">
+  <a href="#memasukkan-data-tabel" class="md-nav__link">
     <span class="md-ellipsis">
-      Manipulasi Data Dengan DML
+      Memasukkan Data Tabel
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Manipulasi Data Dengan DML">
+    <nav class="md-nav" aria-label="Memasukkan Data Tabel">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#memasukkan-data-tabel-kategori" class="md-nav__link">
+  <a href="#tabel-kategori" class="md-nav__link">
     <span class="md-ellipsis">
-      Memasukkan data tabel 'kategori'
+      Tabel Kategori
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#memasukkan-data-tabel-pengarang" class="md-nav__link">
+  <a href="#tabel-pengarang" class="md-nav__link">
     <span class="md-ellipsis">
-      Memasukkan data tabel 'pengarang'
+      Tabel Pengarang
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#memasukkan-data-tabel-penerbit" class="md-nav__link">
+  <a href="#tabel-penerbit" class="md-nav__link">
     <span class="md-ellipsis">
-      Memasukkan data tabel 'penerbit'
+      Tabel Penerbit
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#memasukkan-data-tabel-buku" class="md-nav__link">
+  <a href="#tabel-buku" class="md-nav__link">
     <span class="md-ellipsis">
-      Memasukkan data tabel 'buku'
+      Tabel Buku
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#memasukkan-data-tabel-link_buku_pengarang" class="md-nav__link">
+  <a href="#tabel-link-buku-pengarang" class="md-nav__link">
     <span class="md-ellipsis">
-      Memasukkan data tabel 'link_buku_pengarang'
+      Tabel Link Buku Pengarang
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#memasukkan-data-tabel-link_buku_kategori" class="md-nav__link">
+  <a href="#tabel-link-buku-kategori" class="md-nav__link">
     <span class="md-ellipsis">
-      Memasukkan data tabel 'link_buku_kategori'
+      Tabel Link Buku Kategori
     </span>
   </a>
   
@@ -609,45 +738,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#mengubah-data-di-dalam-tabel-penerbit" class="md-nav__link">
+  <a href="#mengubah-data" class="md-nav__link">
     <span class="md-ellipsis">
-      Mengubah data di dalam tabel penerbit
+      Mengubah Data
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#mengubah-data-di-dalam-tabel-buku" class="md-nav__link">
+  <a href="#menghapus-data" class="md-nav__link">
     <span class="md-ellipsis">
-      Mengubah data di dalam tabel buku
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#menghapus-satu-row-data-dalam-tabel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Menghapus satu row data dalam tabel
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#menghapus-seluruh-row-data-dalam-tabel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Menghapus seluruh row data dalam tabel
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#menghapus-tabel-beserta-isinya-lalu-mere-build-ulang-tabel-tanpa-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      Menghapus tabel beserta isinya, lalu mere-build ulang tabel tanpa data
+      Menghapus Data
     </span>
   </a>
   
@@ -673,13 +775,11 @@
                   
 
 
-  <h1>Bab 2</h1>
-
-<h3 id="manipulasi-data-dengan-dml">Manipulasi Data Dengan DML</h3>
+<h1 id="manipulasi-data-dengan-dml">Manipulasi Data Dengan DML</h1>
 <div class="highlight"><pre><span></span><code>INSERT, UPDATE, DELETE
 </code></pre></div>
-<hr />
-<h4 id="memasukkan-data-tabel-kategori">Memasukkan data tabel 'kategori'</h4>
+<h2 id="memasukkan-data-tabel">Memasukkan Data Tabel</h2>
+<h3 id="tabel-kategori">Tabel Kategori</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">kategori</span><span class="w"> </span><span class="p">(</span><span class="n">kategori_nama</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">(</span><span class="s1">&#39;Database&#39;</span><span class="p">),</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">(</span><span class="s1">&#39;Desain Grafis&#39;</span><span class="p">),</span>
@@ -688,7 +788,7 @@
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">(</span><span class="s1">&#39;Web dan Internet&#39;</span><span class="p">),</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">(</span><span class="s1">&#39;Office Application&#39;</span><span class="p">);</span>
 </code></pre></div>
-<h4 id="memasukkan-data-tabel-pengarang">Memasukkan data tabel 'pengarang'</h4>
+<h3 id="tabel-pengarang">Tabel Pengarang</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">pengarang</span><span class="w"> </span><span class="k">VALUES</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">(</span><span class="s1">&#39;P01&#39;</span><span class="p">,</span><span class="s1">&#39;Andi Setiawan&#39;</span><span class="p">),</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">(</span><span class="s1">&#39;P02&#39;</span><span class="p">,</span><span class="s1">&#39;Rudi Wicaksono&#39;</span><span class="p">),</span>
@@ -704,7 +804,7 @@
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="p">(</span><span class="s1">&#39;P12&#39;</span><span class="p">,</span><span class="s1">&#39;Abdul Ghozali&#39;</span><span class="p">),</span>
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">(</span><span class="s1">&#39;P13&#39;</span><span class="p">,</span><span class="s1">&#39;Tegar Sanjaya&#39;</span><span class="p">);</span>
 </code></pre></div>
-<h4 id="memasukkan-data-tabel-penerbit">Memasukkan data tabel 'penerbit'</h4>
+<h3 id="tabel-penerbit">Tabel Penerbit</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">penerbit</span><span class="w"> </span><span class="k">VALUES</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">(</span><span class="s1">&#39;PB01&#39;</span><span class="p">,</span><span class="s1">&#39;Angkasa Raya&#39;</span><span class="p">),</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">(</span><span class="s1">&#39;PB02&#39;</span><span class="p">,</span><span class="s1">&#39;Cahaya Ilmu Persada&#39;</span><span class="p">),</span>
@@ -715,7 +815,7 @@
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">(</span><span class="s1">&#39;PB07&#39;</span><span class="p">,</span><span class="s1">&#39;Tiga Sekawan&#39;</span><span class="p">),</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">(</span><span class="s1">&#39;PB08&#39;</span><span class="p">,</span><span class="s1">&#39;Cipta Ilmu&#39;</span><span class="p">);</span>
 </code></pre></div>
-<h4 id="memasukkan-data-tabel-buku">Memasukkan data tabel 'buku'</h4>
+<h3 id="tabel-buku">Tabel Buku</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">buku</span><span class="w"> </span><span class="k">VALUES</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">(</span><span class="s1">&#39;222-34222-1-0&#39;</span><span class="p">,</span><span class="s1">&#39;Belajar Photoshop&#39;</span><span class="p">,</span><span class="s1">&#39;PB01&#39;</span><span class="p">,</span><span class="s1">&#39;2019/07/02&#39;</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">42000</span><span class="p">),</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">(</span><span class="s1">&#39;222-34222-1-1&#39;</span><span class="p">,</span><span class="s1">&#39;Panduan CorelDRAW&#39;</span><span class="p">,</span><span class="s1">&#39;PB02&#39;</span><span class="p">,</span><span class="s1">&#39;2020/03/15&#39;</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">55000</span><span class="p">),</span>
@@ -738,7 +838,7 @@
 <a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="p">(</span><span class="s1">&#39;999-11555-2-0&#39;</span><span class="p">,</span><span class="s1">&#39;Microsoft Power Point&#39;</span><span class="p">,</span><span class="s1">&#39;PB06&#39;</span><span class="p">,</span><span class="s1">&#39;2018/11/23&#39;</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">57500</span><span class="p">),</span>
 <a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="p">(</span><span class="s1">&#39;999-11555-2-1&#39;</span><span class="p">,</span><span class="s1">&#39;Microsoft Word&#39;</span><span class="p">,</span><span class="s1">&#39;PB04&#39;</span><span class="p">,</span><span class="s1">&#39;2017/12/01&#39;</span><span class="p">,</span><span class="mi">270</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="mi">60000</span><span class="p">);</span>
 </code></pre></div>
-<h4 id="memasukkan-data-tabel-link_buku_pengarang">Memasukkan data tabel 'link_buku_pengarang'</h4>
+<h3 id="tabel-link-buku-pengarang">Tabel Link Buku Pengarang</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">link_buku_pengarang</span><span class="w"> </span><span class="k">VALUES</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">(</span><span class="s1">&#39;222-34222-1-0&#39;</span><span class="p">,</span><span class="s1">&#39;P01&#39;</span><span class="p">),</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">(</span><span class="s1">&#39;222-34222-1-1&#39;</span><span class="p">,</span><span class="s1">&#39;P04&#39;</span><span class="p">),</span>
@@ -779,7 +879,7 @@
 <a id="__codelineno-4-38" name="__codelineno-4-38" href="#__codelineno-4-38"></a><span class="p">(</span><span class="s1">&#39;999-11555-2-1&#39;</span><span class="p">,</span><span class="s1">&#39;P10&#39;</span><span class="p">),</span>
 <a id="__codelineno-4-39" name="__codelineno-4-39" href="#__codelineno-4-39"></a><span class="p">(</span><span class="s1">&#39;999-11555-2-1&#39;</span><span class="p">,</span><span class="s1">&#39;P06&#39;</span><span class="p">);</span>
 </code></pre></div>
-<h4 id="memasukkan-data-tabel-link_buku_kategori">Memasukkan data tabel 'link_buku_kategori'</h4>
+<h3 id="tabel-link-buku-kategori">Tabel Link Buku Kategori</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">link_buku_kategori</span><span class="w"> </span><span class="k">VALUES</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">(</span><span class="s1">&#39;222-34222-1-0&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">(</span><span class="s1">&#39;222-34222-1-1&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
@@ -805,30 +905,32 @@
 <a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="p">(</span><span class="s1">&#39;999-11555-2-0&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span>
 <a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="p">(</span><span class="s1">&#39;999-11555-2-1&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span>
 </code></pre></div>
-<h3 id="query-tambahan">Query Tambahan</h3>
-<h4 id="mengubah-data-di-dalam-tabel-penerbit">Mengubah data di dalam tabel penerbit</h4>
+<h2 id="query-tambahan">Query Tambahan</h2>
+<h3 id="mengubah-data">Mengubah Data</h3>
+<p>Mengubah Data Tabel Penerbit
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">penerbit</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="n">penerbit_nama</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Informatika Bandung&#39;</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">WHERE</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="n">penerbit_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PB06&#39;</span><span class="p">;</span>
-</code></pre></div>
-<h4 id="mengubah-data-di-dalam-tabel-buku">Mengubah data di dalam tabel buku</h4>
+</code></pre></div></p>
+<p>Mengubah Data Tabel Buku
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">buku</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="n">buku_judul</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Tuntunan Praktis Menggunakan Microsoft Word 2010&#39;</span><span class="p">,</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">        </span><span class="n">penerbit_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PB02&#39;</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">WHERE</span>
 <a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">buku_isbn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;999-11555-2-1&#39;</span><span class="p">;</span>
-</code></pre></div>
-<h4 id="menghapus-satu-row-data-dalam-tabel">Menghapus satu row data dalam tabel</h4>
+</code></pre></div></p>
+<h3 id="menghapus-data">Menghapus Data</h3>
+<p>Menghapus 1 Baris Data
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">buku</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">buku_isbn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;888-96771-3-5&#39;</span><span class="p">;</span>
-</code></pre></div>
-<h4 id="menghapus-seluruh-row-data-dalam-tabel">Menghapus seluruh row data dalam tabel</h4>
+</code></pre></div></p>
+<p>Menghapus Seluruh Baris Data
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">buku</span><span class="p">;</span>
-</code></pre></div>
-<h4 id="menghapus-tabel-beserta-isinya-lalu-mere-build-ulang-tabel-tanpa-data">Menghapus tabel beserta isinya, lalu mere-build ulang tabel tanpa data</h4>
+</code></pre></div></p>
+<p>Menghapus tabel beserta isinya, lalu mere-build ulang tabel tanpa data
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">buku</span><span class="p">;</span>
-</code></pre></div>
+</code></pre></div></p>
 
 
 
