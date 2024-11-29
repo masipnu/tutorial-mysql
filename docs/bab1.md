@@ -13,6 +13,7 @@ USE buku_db;
 
 ## Membuat Tabel
 Tahap selanjutnya kita perlu membuat beberapa tabel, yaitu:
+
 - Tabel kategori
 - Tabel pengarang
 - Tabel penerbit
@@ -22,7 +23,7 @@ Tahap selanjutnya kita perlu membuat beberapa tabel, yaitu:
 
 Berikut query yang perlu kita jalankan.
 
-### Tabel kategori
+**Tabel kategori**
 ```sql
 CREATE TABLE kategori(
 kategori_id int not null auto_increment,
@@ -30,7 +31,7 @@ kategori_nama varchar(25),
 primary key(kategori_id)
 );
 ```
-### Tabel pengarang
+**Tabel pengarang**
 ```sql
 CREATE TABLE pengarang(
 pengarang_id char(3) not null,
@@ -39,7 +40,7 @@ primary key(pengarang_id)
 );
 ```
 
-### Tabel penerbit
+**Tabel penerbit**
 ```sql
 CREATE TABLE penerbit(
 penerbit_id char(4) not null,
@@ -48,7 +49,7 @@ primary key(penerbit_id)
 );
 ```
 
-### Tabel buku
+**Tabel buku**
 ```sql
 CREATE TABLE buku(
 buku_isbn char(13) not null,
@@ -64,7 +65,7 @@ foreign key(penerbit_id)
 );
 ```
 
-### Tabel link_buku_pengarang
+**Tabel link_buku_pengarang**
 ```sql
 CREATE TABLE link_buku_pengarang(
 buku_isbn char(13) not null,
@@ -77,7 +78,7 @@ foreign key(pengarang_id)
 );
 ```
 
-### Tabel link_buku_kategori
+**Tabel link_buku_kategori**
 ```sql
 CREATE TABLE link_buku_kategori(
 buku_isbn char(13) not null,
@@ -92,14 +93,14 @@ foreign key(kategori_id)
 
 ## Query Tambahan
 
-### Mengubah nama tabel
+**Mengubah nama tabel**
 ```sql
 ALTER TABLE
     kategori
 RENAME TO
     kategori_buku;
 ```
-### Menambah kolom
+**Menambah kolom**
 ```sql
 ALTER TABLE
     buku
@@ -107,7 +108,7 @@ ADD COLUMN
     buku_sinopsis text;
 ```
 
-### Mengubah Kolom
+**Mengubah Kolom**
 ```sql
 ALTER TABLE
     buku
@@ -115,7 +116,7 @@ CHANGE
     buku_isbn buku_id char(15);
 ```
 
-### Menghapus kolom
+**Menghapus kolom**
 ```sql
 ALTER TABLE
     buku
@@ -123,7 +124,7 @@ DROP
     buku_sinopsis;
 ```
 
-### Menambah primary key
+**Menambah primary key**
 ```sql
 ALTER TABLE
     buku
@@ -131,7 +132,7 @@ ADD
     primary key(buku_judul);
 ```
 
-### Menambah foreign key
+**Menambah foreign key**
 ```sql
 ALTER TABLE
     link_buku_kategori
@@ -140,20 +141,20 @@ ADD
 	references buku(buku_isbn);
 ```
 
-### Menghapus primary key
+**Menghapus primary key**
 ```sql
 ALTER TABLE
     buku
 DROP primary key;
 ```
 
-### Menghapus foreign key
+**Menghapus foreign key**
 ```sql
 ALTER TABLE
     fk_link_buku_kategori;
 ```
 
-### Menambah indeks
+**Menambah indeks**
 ```sql
 ALTER TABLE
     buku
@@ -161,7 +162,7 @@ ADD INDEX
     idx_judul(buku_judul);
 ```
 
-### Menghapus indeks
+**Menghapus indeks**
 ```sql
 ALTER TABLE
     buku
@@ -169,7 +170,7 @@ DROP INDEX
     idx_judul;
 ```
 
-### Menghapus Tabel
+**Menghapus Tabel**
 ```sql
 DROP TABLE IF EXIST
     link_buku_kategori;

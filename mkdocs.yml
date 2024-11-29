@@ -1,4 +1,9 @@
-site_name: Tutorial MySQL
+# Project information
+site_name: Tutorial MySQL - Best Practice
+site_url: https://masipnu.github.io/tutorial-mysql
+site_author: Ipnu Masyaid
+site_description: >-
+  Tutorial Belajar Database MySQL edisi Best Practice
 nav:
   - Beranda: index.md
   - Bab 1 - Mendefinisikan Data: bab1.md
@@ -46,6 +51,8 @@ theme:
     - navigation.instant.prefetch
     # - navigation.tabs
     # - navigation.footer
+    - content.code.copy
+    # - content.code.select
 
 markdown_extensions:
   - pymdownx.highlight:
