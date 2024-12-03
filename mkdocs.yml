@@ -21,6 +21,21 @@ nav:
 theme:
   icon:
     logo: material/book
+    # Logo Notifikasi
+    admonition:
+      note: fontawesome/solid/note-sticky
+      abstract: fontawesome/solid/book
+      info: fontawesome/solid/circle-info
+      tip: fontawesome/solid/bullhorn
+      success: fontawesome/solid/check
+      question: fontawesome/solid/circle-question
+      warning: fontawesome/solid/triangle-exclamation
+      failure: fontawesome/solid/bomb
+      danger: fontawesome/solid/skull
+      bug: fontawesome/solid/robot
+      example: fontawesome/solid/flask
+      quote: fontawesome/solid/quote-left
+
   favicon: images/book.svg
   name: material
   font:
@@ -50,13 +65,22 @@ theme:
     - navigation.instant
     - navigation.instant.prefetch
     # - navigation.tabs
-    # - navigation.footer
+    - navigation.footer
     - content.code.copy
-    # - content.code.select
+    - content.code.select
 
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
+  - pymdownx.superfences
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+# Notification Banner
+  - admonition
+  - pymdownx.details
   - pymdownx.superfences
 
 extra:
