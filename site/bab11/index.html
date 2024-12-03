@@ -799,9 +799,86 @@
 
 
 <h1 id="trigger">Trigger</h1>
+<ul>
+<li><em>Trigger</em> adalah objek di dalam database yang berasosiasi dengan suatu tabel.</li>
+<li><em>Trigger</em> akan diaktivasi ketika tabel tersebut dikenai <em>event</em> tertentu.</li>
+<li><em>Event</em> merupakan suatu kejadian yang menimpa tabel, bisa berupa penambahan, perubahan maupun penghapusan data.</li>
+</ul>
+<p>Sebelum lebih lanjut membahas trigger, ada baiknya kita siapkan dulu tabel khusus untuk operasi <em>trigger</em> nantinya.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">USE</span><span class="w"> </span><span class="n">buku_db</span><span class="p">;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">histori_buku</span><span class="p">(</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">buku_isbn</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">),</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="n">buku_judul</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">75</span><span class="p">),</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">penerbit_id</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">buku_tglterbit</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">buku_jmlhalaman</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="n">buku_deskripsi</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="n">buku_harga</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="n">aksi</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="n">aksi_tgl</span><span class="w"> </span><span class="nb">DATE</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">);</span>
+</code></pre></div>
 <h2 id="alasan-menggunakan-trigger">Alasan Menggunakan Trigger</h2>
+<p>Beberapa alasan kita menggunakan trigger adalah:</p>
+<ul>
+<li><em>Trigger</em> dapat memvalidasi data yang akan dimasukkan maupun yang akan digunakan untuk melakukan perubahan data.</li>
+<li><em>Trigger</em> dapat memperoleh nilai lama dari baris data yagn dihapus atau dirubah (misalnya untuk pencatatan histori data suatu tabel).</li>
+<li><em>Trigger</em> dapat mengolah nilai kolom pada tabel lain.</li>
+</ul>
+<p>Selain ketiga manfaat di atas, <em>Trigger</em> juga dapat meringankan kode di bagian aplikasi atau <em>stored procedure</em> yagn dikembangkan. Kita tidak perlu menulis kode program di dalam aplikasi untuk melakukan validasi data.</p>
 <h2 id="konsep-trigger">Konsep Trigger</h2>
+<p>Beberapa konsep yang perlu diketahui dan dipahami tentang <em>trigger</em> yaitu:</p>
+<ul>
+<li><em>Trigger</em> adalah objek database yagn berisi kumpulan perintah SQL yang akan dieksekusi atau diaktivasi ketika suatu <em>event</em> terjadi.</li>
+<li>Dalam satu database, kita dapat mendefinisikan lebih dari sati <em>trigger</em>. Setiap <em>trigger</em> harus memiliki nama yang unik.</li>
+<li><em>Trigger</em> harus berasosiasi dengan tabel tertentu sebagai pemicu <em>trigger</em> untuk menentukan kapan <em>trigger</em> yang bersangkutan akan dieksekusi.</li>
+<li><em>Trigger</em> memiliki <em>event</em>:<ul>
+<li><code>BEFORE INSERT</code></li>
+<li><code>AFTER INSERT</code></li>
+<li><code>BEFORE UPDATE</code></li>
+<li><code>AFTER UPDATE</code></li>
+<li><code>BEFORE DELETE</code></li>
+<li><code>AFTER DELETE</code></li>
+</ul>
+</li>
+<li><em>Trigger</em> memiliki referensi <code>NEW</code> dan <code>OLD</code>.</li>
+</ul>
 <h2 id="daftar-event-untuk-aktivasi-trigger">Daftar Event untuk Aktivasi Trigger</h2>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Keterangan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BEFORE INSERT</code></td>
+<td><em>Trigger</em> diaktivasi sebelum data ditambahkan ke dalam suatu tabel.</td>
+</tr>
+<tr>
+<td><code>AFTER INSERT</code></td>
+<td><em>Trigger</em> diaktivasi setelah data ditambahkan ke dalam suatu tabel.</td>
+</tr>
+<tr>
+<td><code>BEFORE UPDATE</code></td>
+<td><em>Trigger</em> diaktivasi sebelum data dalam suatu tabel diubah.</td>
+</tr>
+<tr>
+<td><code>AFTER UPDATE</code></td>
+<td><em>Trigger</em> diaktivasi setelah data daalam suatu tabel diubah.</td>
+</tr>
+<tr>
+<td><code>BEFORE DELETE</code></td>
+<td><em>Trigger</em> diaktivasi sebelum data dihapus daru suatu tabel.</td>
+</tr>
+<tr>
+<td><code>AFTER DELETE</code></td>
+<td><em>Trigger</em> diaktivasi setelah data dihapus dari suatu tabel.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="membuat-trigger">Membuat Trigger</h2>
 <h2 id="memeriksa-pengaruh-trigger">Memeriksa Pengaruh Trigger</h2>
 <h2 id="referensi-trigger-new-old">Referensi Trigger : NEW-OLD</h2>
