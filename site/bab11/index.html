@@ -823,15 +823,15 @@
 <p>Beberapa alasan kita menggunakan trigger adalah:</p>
 <ul>
 <li><em>Trigger</em> dapat memvalidasi data yang akan dimasukkan maupun yang akan digunakan untuk melakukan perubahan data.</li>
-<li><em>Trigger</em> dapat memperoleh nilai lama dari baris data yagn dihapus atau dirubah (misalnya untuk pencatatan histori data suatu tabel).</li>
+<li><em>Trigger</em> dapat memperoleh nilai lama dari baris data yang dihapus atau dirubah (misalnya untuk pencatatan histori data suatu tabel).</li>
 <li><em>Trigger</em> dapat mengolah nilai kolom pada tabel lain.</li>
 </ul>
-<p>Selain ketiga manfaat di atas, <em>Trigger</em> juga dapat meringankan kode di bagian aplikasi atau <em>stored procedure</em> yagn dikembangkan. Kita tidak perlu menulis kode program di dalam aplikasi untuk melakukan validasi data.</p>
+<p>Selain ketiga manfaat di atas, <em>Trigger</em> juga dapat meringankan kode di bagian aplikasi atau <em>stored procedure</em> yang dikembangkan. Kita tidak perlu menulis kode program di dalam aplikasi untuk melakukan validasi data.</p>
 <h2 id="konsep-trigger">Konsep Trigger</h2>
 <p>Beberapa konsep yang perlu diketahui dan dipahami tentang <em>trigger</em> yaitu:</p>
 <ul>
-<li><em>Trigger</em> adalah objek database yagn berisi kumpulan perintah SQL yang akan dieksekusi atau diaktivasi ketika suatu <em>event</em> terjadi.</li>
-<li>Dalam satu database, kita dapat mendefinisikan lebih dari sati <em>trigger</em>. Setiap <em>trigger</em> harus memiliki nama yang unik.</li>
+<li><em>Trigger</em> adalah objek database yang berisi kumpulan perintah SQL yang akan dieksekusi atau diaktivasi ketika suatu <em>event</em> terjadi.</li>
+<li>Dalam satu database, kita dapat mendefinisikan lebih dari satu <em>trigger</em>. Setiap <em>trigger</em> harus memiliki nama yang unik.</li>
 <li><em>Trigger</em> harus berasosiasi dengan tabel tertentu sebagai pemicu <em>trigger</em> untuk menentukan kapan <em>trigger</em> yang bersangkutan akan dieksekusi.</li>
 <li><em>Trigger</em> memiliki <em>event</em>:<ul>
 <li><code>BEFORE INSERT</code></li>
@@ -880,12 +880,280 @@
 </tbody>
 </table>
 <h2 id="membuat-trigger">Membuat Trigger</h2>
+<p>Format pembuatan <em>trigger</em> adalah</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="p">[</span><span class="n">nama_trigger</span><span class="p">]</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">[</span><span class="k">BEFORE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">AFTER</span><span class="p">]</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">[</span><span class="k">INSERT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">DELETE</span><span class="p">]</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">ON</span><span class="w"> </span><span class="p">[</span><span class="n">nama_tabel</span><span class="p">]</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">BEGIN</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">[</span><span class="n">badan</span><span class="w"> </span><span class="k">trigger</span><span class="p">]</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">END</span>
+</code></pre></div>
+Sekarang mari kita buat <em>trigger</em> nya.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">DELIMITER</span><span class="w"> </span><span class="err">$$</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">tr_ai_buku</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">AFTER</span><span class="w"> </span><span class="k">INSERT</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">ON</span><span class="w"> </span><span class="n">BUKU</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">BEGIN</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">histori_buku</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="k">new</span><span class="p">.</span><span class="n">buku_isbn</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="k">new</span><span class="p">.</span><span class="n">buku_judul</span><span class="p">,</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="k">new</span><span class="p">.</span><span class="n">penerbit_id</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="k">new</span><span class="p">.</span><span class="n">buku_tglterbit</span><span class="p">,</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="k">new</span><span class="p">.</span><span class="n">buku_jmlhalaman</span><span class="p">,</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="k">new</span><span class="p">.</span><span class="n">buku_deskripsi</span><span class="p">,</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="k">new</span><span class="p">.</span><span class="n">buku_harga</span><span class="p">,</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="s1">&#39;INSERT&#39;</span><span class="p">,</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="k">CURRENT_DATE</span><span class="p">()</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="p">);</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="k">END</span><span class="w"> </span><span class="err">$$</span>
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Penjelasan Kode</p>
+<ul>
+<li>Perintah di atas akan membuat <em>trigger</em> <code>tr_ai_buku</code> yang akan diaktivasi setiap kali <em>user</em> memasukkan baris data baru ke dalam tabel <code>buku</code>.</li>
+<li><em>Trigger</em> tersebut akan memasukkan data baru ke dalam tabel <code>histori_buku</code>, nilainya diambil dari data yang baru saja dimasukkan ke dalam tabel <code>buku</code>.</li>
+<li>Untuk mengambil nilai dari data yang baru dimasukkan menggunakan referensi <code>new</code> seperti pada <code>new.buku_isbn</code>.</li>
+<li><code>'INSERT'</code> digunakan untuk mengisi jenis aksi yang dilakukan oleh <em>user</em>.</li>
+<li><code>CURRENT_DATE()</code> berfungsi untuk mengisi nilai kolom berisi tanggal saat proses memasukkan data.</li>
+<li>Perintah <code>DELIMITER $$</code> berfungsi untuk menentukan bahwa tanda <code>$$</code> akan digunakan sebagai pembatas berakhirnya pembuatan kode <em>trigger</em>.</li>
+</ul>
+</div>
 <h2 id="memeriksa-pengaruh-trigger">Memeriksa Pengaruh Trigger</h2>
+<p>Untuk memeriksa pengaruh daripada <em>trigger</em>, sekarang kita coba memasukkan sampel data ke dalam tabel buku.</p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">buku</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="s1">&#39;999-11555-2-2&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="s1">&#39;Microsoft Excell&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="s1">&#39;PB04&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="s1">&#39;2009/02/07&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="mi">200</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="mi">60000</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">);</span>
+</code></pre></div>
+Ketika perintah tersebut dijalankan dan tidak terjadi <em>error</em> maka harusnya datanya masuk ke dalam tabel <code>buku</code> dan ada data baru di tabel <code>histori_buku</code>. Mari kita cek.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">histori_buku</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="referensi-trigger-new-old">Referensi Trigger : NEW-OLD</h2>
+<p>Referensi <code>NEW</code> dan <code>OLD</code> berguna untuk mengambil:</p>
+<ul>
+<li>nilai-nilai yang akan dimasukkan ke dalam tabel (melalui perintah <code>INSERT</code>)</li>
+<li>nilai-nilai yang akan digunakan untuk mengubah data (melalui perintah <code>UPDATE</code>), atau</li>
+<li>nilai-nilai dari satu baris data yang telah dihapus (melalui perintah <code>DELETE</code>).</li>
+</ul>
+<p>Sebagai contoh:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">penerbit</span><span class="w"> </span><span class="p">(</span><span class="n">penerbit_id</span><span class="p">,</span><span class="w"> </span><span class="n">penerbit_nama</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">VALUES</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="p">(</span><span class="s1">&#39;PB06&#39;</span><span class="p">,</span><span class="s1">&#39;INFORMATIKA&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>Jika perintah di atas dieksekusi maka MySQL akan menyimpan nilai-nilai tersebut ke dalam referensi <code>NEW</code>. Dengan demikian <code>new.penerbit_id</code> akan bernilai <code>PB06</code> dan <code>new.penerbit_nama</code> akan bernilai <code>INFORMATIKA</code>.</p>
+<p>Contoh lagi</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">penerbit</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="n">penerbit_nama</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Informatika Bandung&#39;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">WHERE</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="n">penerbit_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PB06&#39;</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>Pada perintah <code>UPDATE</code>, referensi <code>NEW</code> berfungsi untuk menyimpan nilai-nilai yang akan digunakan untuk melakukan perubahan.</li>
+<li>Nilai lama yang akan ditimpa dapat diakses menggunakan referensi <code>OLD</code>.</li>
+<li><code>new.penerbit_nama</code> bernilai <code>Informatika Bandung</code>, sedangkan <code>old.penerbit_nama</code> bernilai <code>INFORMATIKA</code>.</li>
+</ul>
+<p>Contoh lagi</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">penerbit</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">penerbit_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PB06&#39;</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>Ketika perintah tersebut dieksekusi, maka referensi <code>OLD</code> akan menyimpan nilai-nilai dari baris data yang dihapus.</li>
+<li>Maka <code>old.penerbit_id</code> bernilai <code>PB06</code>.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Kesimpulan</p>
+<ul>
+<li>Referensi <code>NEW</code> akan menyimpan data baru pada proses <code>INSERT</code> dan <code>UPDATE</code></li>
+<li>Referensi <code>OLD</code> akan menyimpan data lama pada proses <code>UPDATE</code> dan <code>DELETE</code></li>
+<li>Baik referensi <code>NEW</code> maupun <code>OLD</code> bisa diakses dengan format <code>new.[nama_kolom]</code> atau <code>old.[nama_kolom]</code> contoh <code>new.penerbit_nama</code> atau <code>old.penerbit_nama</code></li>
+</ul>
+</div>
 <h2 id="menghapus-trigger">Menghapus Trigger</h2>
+<p>Untuk menghapus <em>trigger</em> kita bisa menggunakan perintah <code>DROP TRIGGER</code> dengan format</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">DRPO</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="p">[</span><span class="n">nama_database</span><span class="p">].[</span><span class="n">nama_trigger</span><span class="p">];</span>
+</code></pre></div>
+<p>Mari kita coba</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">DROP</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">buku_db</span><span class="p">.</span><span class="n">tr_ai_buku</span><span class="p">;</span>
+</code></pre></div>
+<p>Sebenarnya kita bisa juga menghapus trigger tanpa mencantumkan nama databasenya, asalkan saat ini kita sedang mengaktifkan/ menggunakan databasenya.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">DROP</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">tr_ai_buku</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="hak-akses-trigger">Hak Akses Trigger</h2>
+<ul>
+<li>Untuk bisa membuat dan menghapus <em>trigger</em> kita perlu memiliki hak akses <code>SUPER</code>.</li>
+<li>Jika di dalam <em>trigger</em> kita menggunakan referensi <code>NEW</code> dan <code>OLD</code>, maka kita perlu memiliki hak akses tambahan yaitu:<ul>
+<li><code>UPDATE</code>, agar bisa mengisi nilai kolom dengan perintah <code>SET NEW.[nama_kolom] = [nilai]</code>,</li>
+<li><code>SELECT</code>, agar bisa menggunakan referensi <code>NEW.[nama_kolom]</code></li>
+</ul>
+</li>
+</ul>
 <h2 id="batasan-trigger">Batasan Trigger</h2>
+<p>Kita sudah tahu bahwasanya menggunakan <em>trigger</em> dapat membantu pekerjaan kita, namun kita perlu tahu juga bahwasanya <em>trigger</em> juga memiliki beberapa batasan berikut.</p>
+<ul>
+<li>Kita tidak dapat menggunakan perintah <code>CALL</code> (perintah untuk mengeksekusi <em>stored procedure</em>),</li>
+<li>Kita tidak dapat melakukan transaksi, semisal <code>COMMIT</code> dan <code>ROLLBACK</code>,</li>
+<li>Kita tidak dapat membuat <em>trigger</em> untuk tabel temporari.</li>
+</ul>
 <h2 id="implementasi-trigger">Implementasi Trigger</h2>
+<ul>
+<li>Untuk memberikan kasus yang lebih nyata, kita akan mencoba membuat beberapa <em>trigger</em> sesuai dengan database yang sedang kita kelola yaitu <code>buku_db</code>.</li>
+<li>Kita akan membuat <em>trigger</em> <code>AFTER UPDATE</code> dan <code>AFTER DELETE</code> yang bertujuan untuk mencatat setiap perubahan data dan penghapusan data pada tabel <code>buku</code>, nantinya catatan tersebut disimpan di tabel <code>histori_buku</code></li>
+</ul>
+<p><strong>Trigger <code>AFTER UPDATE</code></strong></p>
+<p>Membuat <em>trigger</em> <code>tr_au_buku</code> yang akan diaktivasi setiap kali <em>user</em> mengubah data pada tabel <code>buku</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">DELIMITER</span><span class="w"> </span><span class="err">$$</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">tr_au_buku</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">AFTER</span><span class="w"> </span><span class="k">UPDATE</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">ON</span><span class="w"> </span><span class="n">buku</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="k">BEGIN</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="n">isbn</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">);</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="n">judul</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">75</span><span class="p">);</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="n">penerbit_id</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="n">tgl_terbit</span><span class="w"> </span><span class="nb">DATE</span><span class="p">;</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="n">jml_halaman</span><span class="w"> </span><span class="nb">INT</span><span class="p">;</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="n">deskripsi</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">;</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="n">harga</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="c1">-- Mengisi nilai isbn</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">buku_isbn</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">isbn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">old</span><span class="p">.</span><span class="n">buku_isbn</span><span class="p">;</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">    </span><span class="k">ELSE</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">isbn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">buku_isbn</span><span class="p">;</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a>
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w">    </span><span class="c1">-- mengisi nilai judul</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">buku_judul</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span>
+<a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">judul</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">old</span><span class="p">.</span><span class="n">buku_judul</span><span class="p">;</span>
+<a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="w">    </span><span class="k">ELSE</span>
+<a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">judul</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">buku_judul</span><span class="p">;</span>
+<a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+<a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a>
+<a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="w">    </span><span class="c1">-- mengisi nilai penerbit_id</span>
+<a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">penerbit_id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span>
+<a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">penerbit_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">old</span><span class="p">.</span><span class="n">penerbit_id</span><span class="p">;</span>
+<a id="__codelineno-11-32" name="__codelineno-11-32" href="#__codelineno-11-32"></a><span class="w">    </span><span class="k">ELSE</span>
+<a id="__codelineno-11-33" name="__codelineno-11-33" href="#__codelineno-11-33"></a><span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">penerbit_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">penerbit_id</span><span class="p">;</span>
+<a id="__codelineno-11-34" name="__codelineno-11-34" href="#__codelineno-11-34"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+<a id="__codelineno-11-35" name="__codelineno-11-35" href="#__codelineno-11-35"></a>
+<a id="__codelineno-11-36" name="__codelineno-11-36" href="#__codelineno-11-36"></a><span class="w">    </span><span class="c1">-- mengisi nilai tgl_terbit</span>
+<a id="__codelineno-11-37" name="__codelineno-11-37" href="#__codelineno-11-37"></a><span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">buku_tglterbit</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span>
+<a id="__codelineno-11-38" name="__codelineno-11-38" href="#__codelineno-11-38"></a><span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">tgl_terbit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">old</span><span class="p">.</span><span class="n">buku_tglterbit</span><span class="p">;</span>
+<a id="__codelineno-11-39" name="__codelineno-11-39" href="#__codelineno-11-39"></a><span class="w">    </span><span class="k">ELSE</span>
+<a id="__codelineno-11-40" name="__codelineno-11-40" href="#__codelineno-11-40"></a><span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">tgl_terbit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">buku_tglterbit</span><span class="p">;</span>
+<a id="__codelineno-11-41" name="__codelineno-11-41" href="#__codelineno-11-41"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+<a id="__codelineno-11-42" name="__codelineno-11-42" href="#__codelineno-11-42"></a>
+<a id="__codelineno-11-43" name="__codelineno-11-43" href="#__codelineno-11-43"></a><span class="w">    </span><span class="c1">-- mengisi nilai jml_halaman</span>
+<a id="__codelineno-11-44" name="__codelineno-11-44" href="#__codelineno-11-44"></a><span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">buku_jmlhalaman</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span>
+<a id="__codelineno-11-45" name="__codelineno-11-45" href="#__codelineno-11-45"></a><span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">jml_halaman</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">old</span><span class="p">.</span><span class="n">buku_jmlhalaman</span><span class="p">;</span>
+<a id="__codelineno-11-46" name="__codelineno-11-46" href="#__codelineno-11-46"></a><span class="w">    </span><span class="k">ELSE</span>
+<a id="__codelineno-11-47" name="__codelineno-11-47" href="#__codelineno-11-47"></a><span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">jml_halaman</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">buku_jmlhalaman</span><span class="p">;</span>
+<a id="__codelineno-11-48" name="__codelineno-11-48" href="#__codelineno-11-48"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+<a id="__codelineno-11-49" name="__codelineno-11-49" href="#__codelineno-11-49"></a>
+<a id="__codelineno-11-50" name="__codelineno-11-50" href="#__codelineno-11-50"></a><span class="w">    </span><span class="c1">-- mengisi nilai deskripsi</span>
+<a id="__codelineno-11-51" name="__codelineno-11-51" href="#__codelineno-11-51"></a><span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">buku_deskripsi</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span>
+<a id="__codelineno-11-52" name="__codelineno-11-52" href="#__codelineno-11-52"></a><span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">deskripsi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">old</span><span class="p">.</span><span class="n">buku_deskripsi</span><span class="p">;</span>
+<a id="__codelineno-11-53" name="__codelineno-11-53" href="#__codelineno-11-53"></a><span class="w">    </span><span class="k">ELSE</span>
+<a id="__codelineno-11-54" name="__codelineno-11-54" href="#__codelineno-11-54"></a><span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">deskripsi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">buku_deskripsi</span><span class="p">;</span>
+<a id="__codelineno-11-55" name="__codelineno-11-55" href="#__codelineno-11-55"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+<a id="__codelineno-11-56" name="__codelineno-11-56" href="#__codelineno-11-56"></a>
+<a id="__codelineno-11-57" name="__codelineno-11-57" href="#__codelineno-11-57"></a><span class="w">    </span><span class="c1">-- mengisi nilai harga</span>
+<a id="__codelineno-11-58" name="__codelineno-11-58" href="#__codelineno-11-58"></a><span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">buku_harga</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">THEN</span>
+<a id="__codelineno-11-59" name="__codelineno-11-59" href="#__codelineno-11-59"></a><span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">harga</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">old</span><span class="p">.</span><span class="n">buku_harga</span><span class="p">;</span>
+<a id="__codelineno-11-60" name="__codelineno-11-60" href="#__codelineno-11-60"></a><span class="w">    </span><span class="k">ELSE</span>
+<a id="__codelineno-11-61" name="__codelineno-11-61" href="#__codelineno-11-61"></a><span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">harga</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">buku_harga</span><span class="p">;</span>
+<a id="__codelineno-11-62" name="__codelineno-11-62" href="#__codelineno-11-62"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+<a id="__codelineno-11-63" name="__codelineno-11-63" href="#__codelineno-11-63"></a>
+<a id="__codelineno-11-64" name="__codelineno-11-64" href="#__codelineno-11-64"></a><span class="w">    </span><span class="c1">-- memasukkan data ke dalam tabel histori_buku</span>
+<a id="__codelineno-11-65" name="__codelineno-11-65" href="#__codelineno-11-65"></a><span class="w">    </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">histori_buku</span>
+<a id="__codelineno-11-66" name="__codelineno-11-66" href="#__codelineno-11-66"></a><span class="w">    </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-11-67" name="__codelineno-11-67" href="#__codelineno-11-67"></a><span class="w">        </span><span class="n">isbn</span><span class="p">,</span>
+<a id="__codelineno-11-68" name="__codelineno-11-68" href="#__codelineno-11-68"></a><span class="w">        </span><span class="n">judul</span><span class="p">,</span>
+<a id="__codelineno-11-69" name="__codelineno-11-69" href="#__codelineno-11-69"></a><span class="w">        </span><span class="n">penerbit_id</span><span class="p">,</span>
+<a id="__codelineno-11-70" name="__codelineno-11-70" href="#__codelineno-11-70"></a><span class="w">        </span><span class="n">tgl_terbit</span><span class="p">,</span>
+<a id="__codelineno-11-71" name="__codelineno-11-71" href="#__codelineno-11-71"></a><span class="w">        </span><span class="n">jml_halaman</span><span class="p">,</span>
+<a id="__codelineno-11-72" name="__codelineno-11-72" href="#__codelineno-11-72"></a><span class="w">        </span><span class="n">deskripsi</span><span class="p">,</span>
+<a id="__codelineno-11-73" name="__codelineno-11-73" href="#__codelineno-11-73"></a><span class="w">        </span><span class="n">harga</span><span class="p">,</span>
+<a id="__codelineno-11-74" name="__codelineno-11-74" href="#__codelineno-11-74"></a><span class="w">        </span><span class="s1">&#39;UPDATE&#39;</span><span class="p">,</span>
+<a id="__codelineno-11-75" name="__codelineno-11-75" href="#__codelineno-11-75"></a><span class="w">        </span><span class="k">CURRENT_DATE</span><span class="p">()</span>
+<a id="__codelineno-11-76" name="__codelineno-11-76" href="#__codelineno-11-76"></a><span class="w">    </span><span class="p">);</span><span class="w">   </span>
+<a id="__codelineno-11-77" name="__codelineno-11-77" href="#__codelineno-11-77"></a>
+<a id="__codelineno-11-78" name="__codelineno-11-78" href="#__codelineno-11-78"></a><span class="k">END</span><span class="w"> </span><span class="err">$$</span>
+</code></pre></div>
+<p><strong>Trigger <code>AFTER DELETE</code></strong></p>
+<p>Membuat <em>trigger</em> <code>tr_ad_buku</code> yang akan diaktivasi setiap kali <em>user</em> mengubah data pada tabel buku.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">DELIMITER</span><span class="w"> </span><span class="err">$</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">tr_ad_buku</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">AFTER</span><span class="w"> </span><span class="k">DELETE</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="k">ON</span><span class="w"> </span><span class="n">buku</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="k">BEGIN</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">histori_buku</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">        </span><span class="k">old</span><span class="p">.</span><span class="n">buku_isbn</span><span class="p">,</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">        </span><span class="k">old</span><span class="p">.</span><span class="n">buku_judul</span><span class="p">,</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">        </span><span class="k">old</span><span class="p">.</span><span class="n">penerbit_id</span><span class="p">,</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">        </span><span class="k">old</span><span class="p">.</span><span class="n">buku_tglterbit</span><span class="p">,</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">        </span><span class="k">old</span><span class="p">.</span><span class="n">buku_jmlhalaman</span><span class="p">,</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">        </span><span class="k">old</span><span class="p">.</span><span class="n">buku_deskripsi</span><span class="p">,</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">        </span><span class="k">old</span><span class="p">.</span><span class="n">buku_harga</span><span class="p">,</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">        </span><span class="s1">&#39;DELETE&#39;</span><span class="p">,</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">        </span><span class="k">CURRENT_DATE</span><span class="p">()</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">    </span><span class="p">);</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="k">END</span><span class="w"> </span><span class="err">$$</span>
+</code></pre></div>
+<p>Sebagai percobaan, sekarang kita coba mengubah data pada tabel <code>buku</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">UPDATE</span><span class="w"> </span><span class="n">buku</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">SET</span><span class="w"> </span><span class="n">penerbit_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;PB05&#39;</span><span class="p">,</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="n">buku_jmlhalaman</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">254</span><span class="p">,</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="n">buku_harga</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">64000</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="k">WHERE</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="n">buku_isbn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;999-11555-2-2&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>Selanjutnya, kita coba menghapus data dari tabel <code>buku</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">buku</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">buku_isbn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;999-11555-2-2&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>Harusnya ada tambahan 2 baris data pada tabel <code>histori_buku</code>. Sekarang mari kita cek.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">histori_buku</span><span class="p">;</span>
+</code></pre></div>
+<p><strong>Trigger <code>BEFORE INSERT</code></strong></p>
+<ul>
+<li>Kali ini kita juga akan membuat <em>trigger</em> yang berfungsi melakukan validasi sebelum data dimasukkan ke dalam tabel <code>buku</code>.</li>
+<li>Sebagai contoh, kita ingin memastikan bahwa kolom <code>buku_jmlhalaman</code> harus lebih besar dari 149, dan jika nilainya sama atau lebih kecil, maka MySQL server akan menolak untuk memasukkan baris data tersebut.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">DELIMITER</span><span class="w"> </span><span class="err">$$</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="n">tr_bi_buku</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="k">BEFORE</span><span class="w"> </span><span class="k">INSERT</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="k">ON</span><span class="w"> </span><span class="n">buku</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="k">BEGIN</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="k">new</span><span class="p">.</span><span class="n">buku_jmlhalaman</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">149</span><span class="w"> </span><span class="k">THEN</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">        </span><span class="n">SIGNAL</span><span class="w"> </span><span class="k">SQLSTATE</span><span class="w"> </span><span class="s1">&#39;45000&#39;</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">            </span><span class="k">SET</span><span class="w"> </span><span class="k">MESSAGE_TEXT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Tidak bisa menambah buku, jumlah halaman terlalu sedikit.&#39;</span><span class="p">;</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="k">END</span><span class="w"> </span><span class="err">$$</span>
+</code></pre></div>
+<p>Untuk membuktikan pengaruh <em>trigger</em> tersebut, sekarang kita coba tambahkan data buku baru.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">buku</span><span class="w"> </span><span class="k">VALUES</span><span class="p">(</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="s1">&#39;999-11555-2-3&#39;</span><span class="p">,</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="s1">&#39;Microsoft Publisher&#39;</span><span class="p">,</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="s1">&#39;PB04&#39;</span><span class="p">,</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="s1">&#39;2021/02/07&#39;</span><span class="p">,</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">    </span><span class="mi">100</span><span class="p">,</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">    </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">    </span><span class="mi">6000</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="p">);</span>
+</code></pre></div>
+<p>Hasilnya? 😎</p>
 
 
 
