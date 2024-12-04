@@ -1,4 +1,9 @@
 !!! abstract "Daftar Isi"
+
+    [Kata Pengantar](pengantar.md)
+
+    [Daftar Isi](toc.md)
+
     [Bab 1 - Mendefinisikan Data](bab1.md)
 
     [Bab 2 - Manipulasi Data](bab2.md)
@@ -23,5 +28,4 @@
     
     [Bab 12 - Ekspor dan Impor](bab12.md)
 
-
-[Beranda](index.md){ .md-button .md-button--primary }
+    [Penutup](penutup.md)

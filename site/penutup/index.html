@@ -12,13 +12,11 @@
         <meta name="author" content="Ipnu Masyaid">
       
       
-        <link rel="canonical" href="https://masipnu.github.io/tutorial-mysql/bab1/">
+        <link rel="canonical" href="https://masipnu.github.io/tutorial-mysql/penutup/">
       
       
-        <link rel="prev" href="../toc/">
+        <link rel="prev" href="../bab12/">
       
-      
-        <link rel="next" href="../bab2/">
       
       
       <link rel="icon" href="../images/book.svg">
@@ -26,7 +24,7 @@
     
     
       
-        <title>Bab 1 - Mendefinisikan Data - Tutorial MySQL - Best Practice</title>
+        <title>Penutup - Tutorial MySQL - Best Practice</title>
       
     
     
@@ -118,11 +116,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#mendefinisikan-data-dengan-dml" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -155,7 +148,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bab 1 - Mendefinisikan Data
+              Penutup
             
           </span>
         </div>
@@ -341,30 +334,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Bab 1 - Mendefinisikan Data
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../bab1/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -373,53 +346,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#membuat-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      Membuat Database
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#membuat-tabel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Membuat Tabel
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#query-tambahan" class="md-nav__link">
-    <span class="md-ellipsis">
-      Query Tambahan
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -648,10 +574,17 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../penutup/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -660,6 +593,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -681,43 +615,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#membuat-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      Membuat Database
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#membuat-tabel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Membuat Tabel
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#query-tambahan" class="md-nav__link">
-    <span class="md-ellipsis">
-      Query Tambahan
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -732,150 +629,18 @@
                   
 
 
-<h1 id="mendefinisikan-data-dengan-dml">Mendefinisikan Data dengan DML</h1>
-<div class="highlight"><pre><span></span><code>CREATE | ALTER | DROP
-</code></pre></div>
-<h2 id="membuat-database">Membuat Database</h2>
-<p>Langkah pertama yagn harus kita lakukan adalah membuat database. Kali ini kita akan membuat database baru bernama "buku_db".
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">buku_db</span><span class="p">;</span>
-</code></pre></div>
-Setelah database tercipta, kita perlu mengaktifkan/ memilih database yang akan kita manipulasi.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">USE</span><span class="w"> </span><span class="n">buku_db</span><span class="p">;</span>
-</code></pre></div></p>
-<h2 id="membuat-tabel">Membuat Tabel</h2>
-<p>Tahap selanjutnya kita perlu membuat beberapa tabel, yaitu:</p>
-<ul>
-<li>Tabel kategori</li>
-<li>Tabel pengarang</li>
-<li>Tabel penerbit</li>
-<li>Tabel buku</li>
-<li>Tabel link_buku_pengarang</li>
-<li>Tabel link_buku_penerbit</li>
-</ul>
-<p>Berikut query yang perlu kita jalankan.</p>
-<p><strong>Tabel kategori</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">kategori</span><span class="p">(</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">kategori_id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="n">auto_increment</span><span class="p">,</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">kategori_nama</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">kategori_id</span><span class="p">)</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">);</span>
-</code></pre></div>
-<strong>Tabel pengarang</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">pengarang</span><span class="p">(</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">pengarang_id</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">pengarang_nama</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">pengarang_id</span><span class="p">)</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">);</span>
-</code></pre></div></p>
-<p><strong>Tabel penerbit</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">penerbit</span><span class="p">(</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">penerbit_id</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">penerbit_nama</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">penerbit_id</span><span class="p">)</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">);</span>
-</code></pre></div></p>
-<p><strong>Tabel buku</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">buku</span><span class="p">(</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">buku_isbn</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">buku_judul</span><span class="w"> </span><span class="nb">varchar</span><span class="p">(</span><span class="mi">75</span><span class="p">),</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">penerbit_id</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">buku_tglterbit</span><span class="w"> </span><span class="nb">date</span><span class="p">,</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">buku_jmlhalaman</span><span class="w"> </span><span class="nb">int</span><span class="p">,</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">buku_deskripsi</span><span class="w"> </span><span class="nb">text</span><span class="p">,</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">buku_harga</span><span class="w"> </span><span class="nb">decimal</span><span class="p">,</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">buku_isbn</span><span class="p">),</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">foreign</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">penerbit_id</span><span class="p">)</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="k">references</span><span class="w"> </span><span class="n">penerbit</span><span class="p">(</span><span class="n">penerbit_id</span><span class="p">)</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">);</span>
-</code></pre></div></p>
-<p><strong>Tabel link_buku_pengarang</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">link_buku_pengarang</span><span class="p">(</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">buku_isbn</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">pengarang_id</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">buku_isbn</span><span class="p">,</span><span class="w"> </span><span class="n">pengarang_id</span><span class="p">),</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">foreign</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">buku_isbn</span><span class="p">)</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="k">references</span><span class="w"> </span><span class="n">buku</span><span class="p">(</span><span class="n">buku_isbn</span><span class="p">),</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="k">foreign</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">pengarang_id</span><span class="p">)</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="k">references</span><span class="w"> </span><span class="n">pengarang</span><span class="p">(</span><span class="n">pengarang_id</span><span class="p">)</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="p">);</span>
-</code></pre></div></p>
-<p><strong>Tabel link_buku_kategori</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">link_buku_kategori</span><span class="p">(</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">buku_isbn</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">kategori_id</span><span class="w"> </span><span class="nb">int</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">null</span><span class="p">,</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">buku_isbn</span><span class="p">,</span><span class="w"> </span><span class="n">kategori_id</span><span class="p">),</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">foreign</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">buku_isbn</span><span class="p">)</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="k">references</span><span class="w"> </span><span class="n">buku</span><span class="p">(</span><span class="n">buku_isbn</span><span class="p">),</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="k">foreign</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">kategori_id</span><span class="p">)</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="k">references</span><span class="w"> </span><span class="n">kategori</span><span class="p">(</span><span class="n">kategori_id</span><span class="p">)</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="p">);</span>
-</code></pre></div></p>
-<h2 id="query-tambahan">Query Tambahan</h2>
-<p><strong>Mengubah nama tabel</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="n">kategori</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">RENAME</span><span class="w"> </span><span class="k">TO</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="n">kategori_buku</span><span class="p">;</span>
-</code></pre></div>
-<strong>Menambah kolom</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="n">buku</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="n">buku_sinopsis</span><span class="w"> </span><span class="nb">text</span><span class="p">;</span>
-</code></pre></div></p>
-<p><strong>Mengubah Kolom</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="n">buku</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">CHANGE</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="n">buku_isbn</span><span class="w"> </span><span class="n">buku_id</span><span class="w"> </span><span class="nb">char</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
-</code></pre></div></p>
-<p><strong>Menghapus kolom</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="n">buku</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">DROP</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">buku_sinopsis</span><span class="p">;</span>
-</code></pre></div></p>
-<p><strong>Menambah primary key</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="n">buku</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">ADD</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">buku_judul</span><span class="p">);</span>
-</code></pre></div></p>
-<p><strong>Menambah foreign key</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="n">link_buku_kategori</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">ADD</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="k">foreign</span><span class="w"> </span><span class="k">key</span><span class="p">(</span><span class="n">buku_isbn</span><span class="p">)</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="k">references</span><span class="w"> </span><span class="n">buku</span><span class="p">(</span><span class="n">buku_isbn</span><span class="p">);</span>
-</code></pre></div></p>
-<p><strong>Menghapus primary key</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="n">buku</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="k">DROP</span><span class="w"> </span><span class="k">primary</span><span class="w"> </span><span class="k">key</span><span class="p">;</span>
-</code></pre></div></p>
-<p><strong>Menghapus foreign key</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="n">fk_link_buku_kategori</span><span class="p">;</span>
-</code></pre></div></p>
-<p><strong>Menambah indeks</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="n">buku</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="k">ADD</span><span class="w"> </span><span class="k">INDEX</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="n">idx_judul</span><span class="p">(</span><span class="n">buku_judul</span><span class="p">);</span>
-</code></pre></div></p>
-<p><strong>Menghapus indeks</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="n">buku</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="k">DROP</span><span class="w"> </span><span class="k">INDEX</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="n">idx_judul</span><span class="p">;</span>
-</code></pre></div></p>
-<p><strong>Menghapus Tabel</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="n">EXIST</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="n">link_buku_kategori</span><span class="p">;</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="n">link_buku_kategori</span><span class="p">,</span>
-<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="n">link_buku_pengarang</span><span class="p">;</span>
-</code></pre></div></p>
+  <h1>Penutup</h1>
+
+<div class="admonition quote">
+<p class="admonition-title">Penutup</p>
+<p>Terima kasih telah menggunakan panduan belajar MySQL ini. Saya berharap panduan ini dapat memberikan manfaat nyata dalam memahami dan menguasai MySQL, baik untuk kebutuhan belajar, mengajar, maupun pengembangan profesional.</p>
+<p>Jika ada kekurangan dalam penyusunan panduan ini, saya dengan rendah hati menerima saran dan kritik membangun agar panduan ini bisa terus diperbaiki dan dikembangkan.</p>
+<p>Mari bersama-sama menjadikan ilmu yang kita pelajari sebagai bekal untuk kebaikan dan kemajuan. Saya percaya, dengan berbagi ilmu, kita tidak hanya membantu sesama, tetapi juga mendekatkan diri pada keberkahan ilmu itu sendiri.</p>
+<p>Selamat belajar, dan semoga sukses selalu menyertai langkah Anda!</p>
+<p>Hormat kami,</p>
+<p><strong>Ipnu Masyaid</strong></p>
+</div>
+<p><a class="md-button" href="https://saweria.co/masipnu">Beliin Kopi  <img alt="☕" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2615.svg" title=":coffee:" /></a></p>
 
 
 

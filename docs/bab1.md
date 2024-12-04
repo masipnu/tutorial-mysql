@@ -1,5 +1,5 @@
 # Mendefinisikan Data dengan DML
-    Create - Alter - Drop
+    CREATE | ALTER | DROP
 
 ## Membuat Database
 Langkah pertama yagn harus kita lakukan adalah membuat database. Kali ini kita akan membuat database baru bernama "buku_db".

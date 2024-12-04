@@ -6,6 +6,7 @@ site_description: >-
   Tutorial Belajar Database MySQL edisi Best Practice
 nav:
   - Beranda: index.md
+  - Kata Pengantar: pengantar.md
   - Daftar Isi: toc.md
   - Bab 1 - Mendefinisikan Data: bab1.md
   - Bab 2 - Manipulasi Data: bab2.md
@@ -19,6 +20,7 @@ nav:
   - Bab 10 - Prosedur dan Fungsi: bab10.md
   - Bab 11 - Trigger: bab11.md
   - Bab 12 - Ekspor dan Impor: bab12.md
+  - Penutup: penutup.md
 theme:
   icon:
     logo: material/book
@@ -43,24 +45,25 @@ theme:
     text: Open Sans
     code: JetBrains Mono
   palette:
+    # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
-        icon: material/link
-        name: Switch to light mode
+        icon: material/brightness-auto
+        name: Mode terang
+
+    # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: indigo
-      accent: indigo
+      scheme: default 
       toggle:
-        icon: material/toggle-switch
-        name: Switch to dark mode
+        icon: material/brightness-7
+        name: Mode gelap
+
+    # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: black
-      accent: indigo
       toggle:
-        icon: material/toggle-switch-off
-        name: Switch to system preference
+        icon: material/brightness-4
+        name: Mode otomatis
 
   features:
     - navigation.instant

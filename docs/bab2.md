@@ -1,5 +1,5 @@
 # Manipulasi Data Dengan DML
-    INSERT, UPDATE, DELETE
+    INSERT | UPDATE | DELETE
 
 
 ## Memasukkan Data Tabel
