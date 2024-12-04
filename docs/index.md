@@ -25,4 +25,5 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 ![mysql](https://upload.wikimedia.org/wikipedia/id/thumb/a/a9/MySQL.png/200px-MySQL.png)
 
 
-[Mulai Belajar ](bab1.md#mendefinisikan-data-dengan-dml){.md-button .md-button--primary}
+
+[Mulai Belajar ](toc.md){.md-button .md-button--primary}

@@ -6,6 +6,7 @@ site_description: >-
   Tutorial Belajar Database MySQL edisi Best Practice
 nav:
   - Beranda: index.md
+  - Daftar Isi: toc.md
   - Bab 1 - Mendefinisikan Data: bab1.md
   - Bab 2 - Manipulasi Data: bab2.md
   - Bab 3 - Kontrol Hak Akses: bab3.md
