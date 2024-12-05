@@ -1,0 +1,42 @@
+body,
+html{
+    margin: 0;
+    padding: 0;
+    color: #000;
+    background: #fff;
+    font: 12px Verdana, Arial, Helvetica, sans-serif;
+}
+
+table.buku{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: normal;
+    font-size: 11px;
+    color: #002;
+    background-color: #cc6;
+    border: 0px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+}
+
+table.buku td{
+    background-color: #cca;
+    color: #000;
+    padding: 6px;
+    border: 1px #fff solid;
+}
+
+table.buku td.head{
+    background-color: #ccc;
+    color: #fff;
+    padding: 4px;
+    text-align: center;
+    border-bottom: 2px #fff solid;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Menjadikan link yang sudah diklik warnanya sama dengan yang belum diklik */
+a:visited{
+    color: #0000EE;
+}

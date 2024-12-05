@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
-    <link rel="stylesheet" href="framelayout.css">
+    <link rel="stylesheet" href="css/framelayout.css">
 </head>
 <body>
     <h2>Selamat Datang di Toko Buku Online</h2>
@@ -15,7 +15,8 @@
     </p>
 
     <p>
-        <img src="images/buku.jpg" width="300" height="200" alt="">
+        <img src="images/buku-stack.jpg" width="300" height="200" alt="">
+        <!-- <img src="https://picsum.photos/300/200" width="300" height="200" alt=""> -->
     </p>
 
     <p>Barang tidak sampai ke tempat anda? <strong>Garansi 100% uang kembali</strong></p>

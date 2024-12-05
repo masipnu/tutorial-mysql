@@ -20,7 +20,11 @@ html{
 
 #header h1{
     font-size: 36px;
-    color: red;
+    color: #cc6;
+}
+
+#header a{
+    text-decoration: none;
 }
 
 #nav{
@@ -39,6 +43,12 @@ html{
     display: inline;
     margin: 0;
     padding: 0;
+}
+
+#nav a{
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 #main{
@@ -67,4 +77,9 @@ html{
 
 #footer p{
     margin: 0;
+}
+
+/* Menjadikan link yang sudah diklik warnanya sama dengan yang belum diklik */
+a:visited{
+    color: #0000EE;
 }
